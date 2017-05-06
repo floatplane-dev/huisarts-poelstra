@@ -3,7 +3,6 @@
 // Gulp packages
 import autoprefixer from 'gulp-autoprefixer';
 import babel from 'gulp-babel';
-import bump from 'gulp-bump';
 import concat from 'gulp-concat';
 import connect from 'gulp-connect';
 import del from 'del';
