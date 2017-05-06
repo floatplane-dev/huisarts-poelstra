@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="authors" content="Jan Werkhoven">
+    <meta name="robots" content="index, follow">
+    {% block meta %}{% endblock %}
+    <link href="/assets/css/styles.min.css" rel="stylesheet" type="text/css">
+    <script src="/assets/js/scripts.min.js" type="text/javascript"></script>
+    {% include "partials/favicons.html" %}
+  </head>
+  <body id="{% block id %}{% endblock %}">
+    {% include "partials/header.html" %}
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+    {% include "partials/footer.html" %}
+    {% include "partials/outdated-browsers.html" %}
+  </body>
+</html>
