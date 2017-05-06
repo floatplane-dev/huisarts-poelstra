@@ -1,11 +1,11 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Huisarts Poelstra</title>
+  <title>Contact</title>
   <meta name="description" content="">
 {% endblock %}
-{% block id %}landing{% endblock %}
+{% block id %}contact{% endblock %}
 {% block main %}
 
-  <h1>Landing</h1>
+  <h1>Contact</h1>
 
 {% endblock %}
