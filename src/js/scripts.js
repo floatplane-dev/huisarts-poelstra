@@ -1,5 +1,4 @@
-const isProduction = /* @echo isProduction */ ;
-const environment = isProduction ? 'production' : 'staging';
+const environment = '/* @echo environment */';
 const googleAnalyticsID = '/* @echo googleAnalyticsID */';
 
 // Fire page view to Google Analytics

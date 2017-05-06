@@ -23,7 +23,7 @@ import util from 'gulp-util';
 // Constants used for building the project
 const data = {
   projectName: 'Huisarts Poelstra',
-  isProduction: util.env.env === 'production',
+  environment: util.env.env || 'development',
   googleAnalyticsID: 'UA-34474019-XX'
 };
 
@@ -92,7 +92,7 @@ gulp.task('compileProjectJs', () => {
   return gulp.src(['src/js/*.js'])
     .pipe(preprocess({ context: data }))
     .pipe(babel())
-    .pipe(data.isProduction ? uglify({ preserveComments: 'license' }) : noop())
+    .pipe(data.environment !== 'development' ? uglify({ preserveComments: 'license' }) : noop())
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('dist/assets/js'))
 });

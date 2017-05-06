@@ -4,10 +4,11 @@
 The [website](http://huisartspoelstra.nl) of a GP in Rotterdam, Netherlands.
 
 #### Highlights
-* Built with Gulp, Nunchucks (HTML), SASS (CSS), jQuery (JS), Atom & Git
+* Built with Gulp 4, Nunchucks (HTML), SASS (CSS), jQuery (JS), Atom & Git
 * Mobile responsive & retina-ready
 * Served on SSD Ubuntu Nginx servers
-* Designed back in 2011, built in Joomla :facepalm:, revamped into Gulp in 2017
+* Originally built in 2011 in Joomla :facepalm:
+* Revamped with Gulp 4 May 2017
 
 ### Setup
 First make sure you have [NPM](https://nodejs.org/en/download/), [Yarn](https://yarnpkg.com/en/) and [Gulp](http://gulpjs.com/):
@@ -33,10 +34,8 @@ Open [http://localhost:9000/](http://localhost:9000/)
 gulp
 gulp serve
 gulp build
+gulp build --env staging
 gulp build --env production
-gulp deploy --env production --bump patch
-gulp deploy --env production --bump minor
-gulp deploy --env production --bump major
 ```
 Each sub task in Gulp can be run individually as well: `gulp someTask`. Look in the `gulpfile.babel.js` for all available tasks.
 
