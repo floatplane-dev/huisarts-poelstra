@@ -13,6 +13,7 @@
   </head>
   <body id="{% block id %}{% endblock %}">
     {% include "partials/header.html" %}
+    {% include "partials/nav.html" %}
     <main>
       {% block main %}{% endblock %}
     </main>
