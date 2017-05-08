@@ -1,11 +1,14 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Inschrijving</title>
+  <title>Spoedgeval</title>
   <meta name="description" content="">
 {% endblock %}
-{% block id %}inschrijving{% endblock %}
+{% block id %}spoedgeval{% endblock %}
 {% block main %}
 
-  <h1>Inschrijving</h1>
+  <h1>Spoedgeval</h1>
+  <p>In het geval van <strong>spoed</strong> kunt u ons bereiken van maandag tot en met vrijdag tussen 8.00 en 16.00 uur op het nummer 010 45 20 330 [keuze 1]. Wanneer u gebruik maakt van de spoedlijn en er is geen acuut levensgevaar, dan zal de assistente de verbinding verbreken.</p>
+  <p><strong>Bij afwezigheid</strong> wordt u doorverbonden met de dokterstelefoon of u kunt rechtsreeks contact opnemen met de huisartsenpost in het Sint Fransiscus Gasthuis, op het telefoonnummer 010 466 95 73.</p>
+  <p>Ziet de situatie er zeer ernstig uit bel dan <strong>112</strong>.</p>
 
 {% endblock %}

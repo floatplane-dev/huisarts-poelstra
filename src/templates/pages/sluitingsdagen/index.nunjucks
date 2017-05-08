@@ -1,11 +1,48 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Medewerkers</title>
+  <title>Sluitingsdagen</title>
   <meta name="description" content="">
 {% endblock %}
-{% block id %}medewerkers{% endblock %}
+{% block id %}sluitingsdagen{% endblock %}
 {% block main %}
 
-  <h1>Medewerkers</h1>
+  <h1>Sluitingsdagen</h1>
+  <p><strong>Maandag 1 mei t/m vrijdag 5 mei 2017</strong></p>
+  <p>Waarneming is als volgt:</p>
+  <p>Indien uw <strong>achternaam</strong> begint met:</p>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <p>A t/m K</p>
+        </td>
+        <td>
+          <p>Dr Verweijen</p>
+        </td>
+        <td>
+          <p>Bergweg 253</p>
+        </td>
+        <td>
+          <p>Tel 010-4667651</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>L t/m Z</p>
+        </td>
+        <td>
+          <p>Dr vd Stelt</p>
+        </td>
+        <td>
+          <p>Crooswijksesingel 13</p>
+        </td>
+        <td>
+          <p>Tel 010-4120620</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Na 17.00 uur en tijdens de weekenddienst belt u de Telefonische antwoordservice (dokterstelefoon): 010-4201100.</p>
+  <p>Voor herhaalmedicatie kunt u naar uw vaste apotheek.</p>
 
 {% endblock %}

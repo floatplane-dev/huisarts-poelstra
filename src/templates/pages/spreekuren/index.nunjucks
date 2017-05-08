@@ -1,11 +1,23 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Spoedgeval</title>
+  <title>Spreekuren</title>
   <meta name="description" content="">
 {% endblock %}
-{% block id %}spoedgeval{% endblock %}
+{% block id %}Spreekuren{% endblock %}
 {% block main %}
 
-  <h1>Spoedgeval</h1>
+  <h1>Spreekuren</h1>
+  <h2>Spreekuur op afspraak</h2>
+  <p>Van maandag tot en met vrijdag is er iedere ochtend een spreekuur op afspraak. Voor het <strong>maken van een afspraak</strong> kunt u bellen tussen 7.30 en 9.00 uur op ons algemene nummer 010 45 20 330 [keuze 3]. Bij verhindering van een gemaakte afspraak dit graag zo spoedig mogelijk telefonisch doorgeven.</p>
+  <h2>Inloopspreekuur</h2>
+  <p>Op werkdagen is er iedere middag een inloopspreekuur tussen 14.30 en 15.00 uur. Hiervoor hoeft u <strong>geen afspraak</strong> te maken. Houdt u rekening met een mogelijke wachttijd.</p>
+  <h2>Telefonisch spreekuur</h2>
+  <p>Voor het telefonisch spreekuur zijn wij bereikbaar op werkdagen tussen 13.30 en 14.00 uur op het algemeen nummer 010 45 20 330 [keuze 4].</p>
+  <h2>Visites</h2>
+  <p>Visites dienen voor 10.00 uur aangevraagd te worden (behalve spoedgevallen) in verband met de indeling van de werkdag. U kunt ons hiervoor op werkdagen bereiken op het algemeen nummer 010 45 20 330 [keuze 3]. Huisbezoeken kosten veel tijd en zijn beperkt tot die gevallen waarbij komst naar de praktijk door ziekte niet mogelijk is.</p>
+  <h2>Bloedprikken</h2>
+  <p>Voor bloedprikken kunt u in de ochtend terecht in de praktijk. U dient hiervoor <p>telefonisch een afspraak</p> te maken. Tevens kunt u terecht bij de <a href="https://www.star-mdc.nl/" target="_blank">STAR</a> van maandag t/m donderdag tussen 7.00 en 19.00 uur en op vrijdag tussen 7.00 en 17.00 uur. Adres: Blaak 28 in Rotterdam.</p>
+  <h2>Spoedgevallen</h2>
+  <p>Voor spoedgevallen buiten onze openingstijden kunt u contact opnemen met de Telefonische antwoord service (dokterstelefoon) op telefoonnummer 010- 420 11 00.</p>
 
 {% endblock %}

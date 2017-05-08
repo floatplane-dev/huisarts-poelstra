@@ -11,11 +11,13 @@ The [website](http://huisartspoelstra.nl) of a GP in Rotterdam, Netherlands.
 * Revamped with Gulp 4 May 2017
 
 ### Setup
-First make sure you have [NPM](https://nodejs.org/en/download/), [Yarn](https://yarnpkg.com/en/) and [Gulp](http://gulpjs.com/):
+First make sure you have [NPM](https://nodejs.org/en/download/), [Yarn](https://yarnpkg.com/en/), [Bower](https://bower.io/) and [Gulp](http://gulpjs.com/):
 ```
 brew update
-brew install yarn
-npm install --global gulp-cli;
+brew install yarn;
+npm install -g bower;
+npm install --g gulp-cli;
+npm rebuild node-sass;
 ```
 Then clone, install, build, watch and serve the project:
 ```
