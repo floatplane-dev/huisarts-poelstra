@@ -1,6 +1,6 @@
 // All headings, paragraphs and buttons will inherit these font styles from the <body>
 body {
-  font-family: $lato-regular;
+  font-family: $font-stack;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -9,11 +9,8 @@ body {
   color: $paragraph-grey;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  &.prevent-scroll {
-    overflow: hidden;
-  }
+  background: url('/assets/images/bg-pattern.jpg');
 }
-
 // The general layout of the page
 footer,
 header,
@@ -28,13 +25,11 @@ section {
     overflow: hidden;
   }
 }
-
 // To avoid <img> and <iframe> to have weird white space below them, make them a block
 iframe,
 img {
   display: block;
 }
-
 // In most cases we use <ul> not as bullet lists and thus we strip them of all browser defaults
 ul {
   list-style: none;
@@ -44,7 +39,6 @@ ul {
     padding: 0;
   }
 }
-
 // This is to override the browser default font-weight and margins
 h1,
 h2,
@@ -52,30 +46,31 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $lato-bold;
+  font-family: $sakkal-bold;
   font-style: normal;
   font-weight: normal;
   line-height: 150%;
   margin: 0;
 }
-
+h1 {
+  background: url('/assets/images/bg-title.jpg');
+  color: white;
+}
 p {
   line-height: 170%;
   font-size: 1.25vw;
   color: $paragraph-grey;
   margin: 0 0 1.6vw;
 }
-
 a {
   text-decoration: none;
   &:hover {
     text-decoration: none;
   }
 }
-
 a.button,
 button {
-  font-family: $lato-regular;
+  font-family: $font-stack;
   display: inline-block;
   font-size: 16px;
   line-height: 32px;
@@ -88,5 +83,14 @@ button {
   transition: background-color 300ms ease-out;
   &:hover {
     background: rgba(white, 0.3);
+  }
+}
+main {
+  display: flex;
+  nav {
+    background: white;
+  }
+  article {
+    background: white;
   }
 }
