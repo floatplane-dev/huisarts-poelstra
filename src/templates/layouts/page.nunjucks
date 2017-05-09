@@ -14,10 +14,16 @@
   <body id="{% block id %}{% endblock %}">
     {% include "partials/header.html" %}
     <main>
-      {% include "partials/nav.html" %}
-      <article>
-        {% block main %}{% endblock %}
-      </article>
+      <div class="inner">
+        {% include "partials/nav.html" %}
+        <article>
+          <div class="bg-box"></div>
+          <div class="bg-fade"></div>
+          <div class="inner">
+            {% block main %}{% endblock %}
+          </div>
+        </article>
+      </div>
     </main>
     {% include "partials/footer.html" %}
     {% include "partials/outdated-browsers.html" %}

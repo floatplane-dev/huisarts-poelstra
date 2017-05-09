@@ -6,7 +6,7 @@
 {% block id %}medewerkers{% endblock %}
 {% block main %}
 
-  <h1>Medewerkers</h1>
+  <h1><span>Medewerkers</span></h1>
   <div class="photos">
     <img src="/assets/images/huisarts-frank-poelstra.jpg" alt="Huisarts Frank Poelstra">
     <img src="/assets/images/praktijk-manager-petra-poelstra-kranenburg.jpg" alt="Praktijk Manager &amp; praktijkondersteuner Petra Poelstra Kranenburg">

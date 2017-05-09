@@ -1,12 +1,11 @@
-// All headings, paragraphs and buttons will inherit these font styles from the <body>
 body {
   font-family: $font-stack;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 130%;
-  margin: 0;
+  line-height: 150%;
   color: $paragraph-grey;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url('/assets/images/bg-pattern.jpg');
@@ -46,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $sakkal-bold;
+  font-family: $sakkal-regular;
   font-style: normal;
   font-weight: normal;
   line-height: 150%;
@@ -54,18 +53,34 @@ h6 {
 }
 h1 {
   background: url('/assets/images/bg-title.jpg');
-  color: white;
+  margin: 0 0 36px;
+  span {
+    display: block;
+    transform: translateY(2px);
+    color: white;
+    padding: 0 15px;
+    font-size: 50px;
+    line-height: 50px;
+    text-shadow: 0 0 9px rgba(0,0,0,0.2);
+  }
+}
+h2 {
+  font-family: $font-stack;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 42px 30px 16px;
 }
 p {
-  line-height: 170%;
-  font-size: 1.25vw;
+  font-size: 16px;
+  line-height: 150%;
   color: $paragraph-grey;
-  margin: 0 0 1.6vw;
+  margin: 16px 30px;
 }
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: #6f6c5b;
   &:hover {
-    text-decoration: none;
+    color: #b4e067;
   }
 }
 a.button,
@@ -85,12 +100,120 @@ button {
     background: rgba(white, 0.3);
   }
 }
+header,
 main {
-  display: flex;
-  nav {
-    background: white;
+  > .inner {
+    max-width: 1000px;
+    min-width: 320px;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
-  article {
-    background: white;
+}
+header {
+  height: 220px;
+}
+main {
+  position: relative;
+  margin-bottom: 200px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  min-height: 650px;
+  &:after,
+  &:before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+  }
+  &:before {
+    bottom: 0;
+    height: 50px;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+  }
+  &:after {
+    top: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+  }
+  > .inner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    article,
+    nav {
+      > .inner {
+        position: relative;
+        z-index: 2;
+        padding: 15px;
+      }
+      &:after,
+      &:before {
+        content: ' ';
+        position: absolute;
+        height: 640px;
+        z-index: 1;
+      }
+      &:before {
+        width: calc(100% - 40px);
+        top: 0;
+        left: 20px;
+        background: white;
+        box-shadow: 0 0 20px RGBA(0,0,0,0.2);
+      }
+      &:after {
+        width: 100%;
+        top: 120px;
+        left: 0;
+        background: linear-gradient(to top, rgba(255,255,255,1) 40%,rgba(255,255,255, 0) 100%);
+      }
+    }
+    nav {
+      width: 280px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      transform: translateY(-60px);
+      &:after,
+      &:before {
+        height: 380px;
+      }
+      ul {
+        li {
+          a {
+            display: block;
+            height: 36px;
+            width: 190px;
+            padding: 0 10px;
+            font-size: 16px;
+            line-height: 36px;
+            text-align: left;
+            text-decoration: none;
+            border-bottom: 1px dotted #CDCDCD;
+            &:hover {
+              background: url('/assets/images/bg-navigatie.jpg') no-repeat left top;
+              color: #FFF;
+              text-shadow: 1px 1px 10px rgba(black, 0.3);
+            }
+          }
+        }
+      }
+    }
+    article {
+      width: 100%;
+      max-width: 720px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      transform: translateY(-120px);
+      > .inner {
+        position: relative;
+        z-index: 2;
+      }
+      .photos {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
   }
 }

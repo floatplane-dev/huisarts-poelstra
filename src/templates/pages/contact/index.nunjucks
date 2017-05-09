@@ -6,7 +6,7 @@
 {% block id %}contact{% endblock %}
 {% block main %}
 
-  <h1>Contact</h1>
+  <h1><span>Contact</span></h1>
   <div>
     <div>
       <img src="/assets/images/huisartspraktijk-poelstra-voorgevel.jpg" alt="Huisartspraktijk Poelstra voorgevel in Rotterdam" width="300" height="200">

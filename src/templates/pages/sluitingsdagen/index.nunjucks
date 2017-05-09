@@ -6,8 +6,8 @@
 {% block id %}sluitingsdagen{% endblock %}
 {% block main %}
 
-  <h1>Sluitingsdagen</h1>
-  <p><strong>Maandag 1 mei t/m vrijdag 5 mei 2017</strong></p>
+  <h1><span>Sluitingsdagen</span></h1>
+  <h2>Maandag 1 mei t/m vrijdag 5 mei 2017</h2>
   <p>Waarneming is als volgt:</p>
   <p>Indien uw <strong>achternaam</strong> begint met:</p>
   <table>

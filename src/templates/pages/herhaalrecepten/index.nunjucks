@@ -6,7 +6,7 @@
 {% block id %}herhaalrecepten{% endblock %}
 {% block main %}
 
-  <h1>Herhaalrecepten</h1>
+  <h1><span>Herhaalrecepten</span></h1>
   <p>Herhaalrecepten kunt u op ieder moment van de dag inspreken op de <strong>receptenlijn</strong>010 45 20 330, [keuze 2]. De recepten worden standaard naar uw apotheek gestuurd.</p>
   <p>Indien u <strong>vóór 12.00</strong> uur een herhaalrecept aanvraagt middels de receptenlijn, dan kunt u de medicatie de volgende dag ophalen bij uw apotheek.</p>
   <p>Belangrijk is dat u duidelijk uw naam, geboortedatum en telefoonnummer inspreekt en de naam en sterkte van uw medicijnen.</p>

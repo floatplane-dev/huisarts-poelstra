@@ -6,7 +6,7 @@
 {% block id %}interessante-links{% endblock %}
 {% block main %}
 
-  <h1>Interessante links</h1>
+  <h1><span>Interessante links</span></h1>
   <table>
     <tbody>
       <tr>
