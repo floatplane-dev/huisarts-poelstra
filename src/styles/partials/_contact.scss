@@ -1,0 +1,22 @@
+body#contact {
+  .columns {
+    display: flex;
+    padding: 0 30px;
+    img {
+      margin-right: 36px;
+    }
+    dl {
+      margin: 0;
+    }
+    dd+dt {
+      margin-top: 20px;
+    }
+    dd {
+      font-size: 19px;
+      margin-left: 0;
+    }
+  }
+  iframe {
+    margin-top: 36px;
+  }
+}

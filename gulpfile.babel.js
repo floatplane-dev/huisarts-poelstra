@@ -36,7 +36,7 @@ gulp.task('deleteDist', () => {
 gulp.task('copyPublic', () => {
   return gulp.src('src/public/**/*')
     .pipe(gulp.dest('dist/'))
-    .pipe(connect.reload());
+  // .pipe(connect.reload());
 });
 
 // Copy the outdatedbrowser JS
@@ -60,7 +60,7 @@ gulp.task('compileHtml', () => {
     }))
     .pipe(prettify({ config: './jsbeautifyrc.json' }))
     .pipe(gulp.dest('dist/'))
-    .pipe(connect.reload());
+  // .pipe(connect.reload());
 });
 
 // Compile all CSS
@@ -77,7 +77,7 @@ gulp.task('compileCss', () => {
     .pipe(minifyCSS({ specialComments: 'none' }))
     .pipe(rename({ extname: ".min.css" }))
     .pipe(gulp.dest('dist/assets/css'))
-    .pipe(connect.reload());
+  // .pipe(connect.reload());
 });
 
 // Lint app JS, warn about bad JS, break on errors
@@ -111,6 +111,11 @@ gulp.task('includeVendors', () => {
 // Live reload JS files in browser
 gulp.task('reloadJs', () => {
   return gulp.src(['dist/assets/js/**/*.js'])
+  // .pipe(connect.reload());
+});
+
+gulp.task('reload', () => {
+  return gulp.src(['src/**/*'])
     .pipe(connect.reload());
 });
 
@@ -129,11 +134,13 @@ gulp.task('compileJs',
 gulp.slurped = false; // step 1
 gulp.task('watch', () => {
   if (!gulp.slurped) { // step 2
-    gulp.watch(['src/public/**/*'], gulp.parallel('copyPublic'));
-    gulp.watch(['src/templates/**/*.+(html|nunjucks|json)'], gulp.parallel('compileHtml'));
-    gulp.watch(['src/styles/**/*.scss'], gulp.parallel('compileCss'));
-    gulp.watch(['src/js/**/*.js', '.babelrc', '.eslintrc'], gulp.parallel('compileJs'));
-    gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build']));
+    gulp.watch(['src/public/**/*'], gulp.parallel('copyPublic', 'reload'));
+    gulp.watch(['src/templates/**/*.+(html|nunjucks|json)'], gulp.series('compileHtml', 'reload'));
+    gulp.watch(['src/styles/**/*.scss'], gulp.series('compileCss', 'reload'));
+    gulp.watch(['src/js/**/*.js', '.babelrc', '.eslintrc'], gulp.series('compileJs', 'reload'));
+    gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build', 'reload']));
+    gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build', 'reload']));
+    // gulp.watch(['dist/**/*'], gulp.series(['reload']));
     gulp.slurped = true; // step 3
   }
 });
