@@ -7,41 +7,18 @@
 {% block main %}
 
   <h1><span>Sluitingsdagen</span></h1>
-  <h2>Maandag 1 mei t/m vrijdag 5 mei 2017</h2>
+  <h2>Onze praktijk is gesloten<br>van maandag 1 mei t/m vrijdag 5 mei 2017</h2>
   <p>Waarneming is als volgt:</p>
-  <p>Indien uw <strong>achternaam</strong> begint met:</p>
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <p>A t/m K</p>
-        </td>
-        <td>
-          <p>Dr Verweijen</p>
-        </td>
-        <td>
-          <p>Bergweg 253</p>
-        </td>
-        <td>
-          <p>Tel 010-4667651</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>L t/m Z</p>
-        </td>
-        <td>
-          <p>Dr vd Stelt</p>
-        </td>
-        <td>
-          <p>Crooswijksesingel 13</p>
-        </td>
-        <td>
-          <p>Tel 010-4120620</p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <p>Indien uw <strong>achternaam</strong> begint met <strong>A t/m K</strong>:</p>
+  <p>Dr Verweijen<br>
+    Bergweg 253<br>
+    Tel: 010-4667651</p>
+  </p>
+  <p>Indien uw <strong>achternaam</strong> begint met <strong>L t/m Z</strong>:</p>
+  <p>Dr vd Stelt<br>
+    Crooswijksesingel 13<br>
+    Tel: 010-4120620</p>
+  </p>
   <p>Na 17.00 uur en tijdens de weekenddienst belt u de Telefonische antwoordservice (dokterstelefoon): 010-4201100.</p>
   <p>Voor herhaalmedicatie kunt u naar uw vaste apotheek.</p>
 
