@@ -27,6 +27,48 @@ const data = {
   googleAnalyticsID: 'UA-34474019-XX'
 };
 
+const localisedData = {
+  nl: {
+    languageCode: 'nl-NL',
+    nav: {
+      welcome: {
+        url: '/nl',
+        label: 'Welkom'
+      },
+      welcome: {
+        url: '/nl/spreekuren',
+        label: 'Spreekuren'
+      },
+      welcome: {
+        url: '/nl/spoedgeval',
+        label: 'Spoedgeval'
+      },
+    } <
+    li > < a href = "/" > Welkom < /a></li >
+    <
+    li > < a href = "/spreekuren" > Spreekuren < /a></li >
+    <
+    li > < a href = "/spoedgeval" > Spoedgeval < /a></li >
+    <
+    li > < a href = "/inschrijving" > Inschrijving < /a></li >
+    <
+    li > < a href = "/herhaalrecepten" > Herhaalrecepten < /a></li >
+    <
+    li > < a href = "/sluitingsdagen" > Sluitingsdagen < /a></li >
+    <
+    li > < a href = "/medewerkers" > Medewerkers < /a></li >
+    <
+    li > < a href = "/interessante-links" > Interessante links < /a></li >
+    <
+    li > < a href = "/klachten" > Klachten < /a></li >
+    <
+    li > < a href = "/contact" > Contact < /a></li >
+  },
+  en: {
+    languageCode: 'en-NL'
+  }
+};
+
 // Delete the dist folder
 gulp.task('deleteDist', () => {
   return del(['dist']);
@@ -36,7 +78,7 @@ gulp.task('deleteDist', () => {
 gulp.task('copyPublic', () => {
   return gulp.src('src/public/**/*')
     .pipe(gulp.dest('dist/'))
-  // .pipe(connect.reload());
+    .pipe(connect.reload());
 });
 
 // Copy the outdatedbrowser JS
@@ -51,17 +93,27 @@ gulp.task('copyOutdatedBrowserCss', () => {
     .pipe(gulp.dest('dist/assets/css/'))
 });
 
-// Compile all HTML
-gulp.task('compileHtml', () => {
-  return gulp.src('src/templates/pages/**/*.+(html|nunjucks)')
+// Compile all HTML (Dutch pages only)
+gulp.task('compileHtmlDutch', () => {
+  return compileHtml('nl');
+});
+
+// Compile all HTML (English pages only)
+gulp.task('compileHtmlEnglish', () => {
+  return compileHtml('en');
+});
+
+function compileHtml(locale) {
+  const mergedData = Object.assign({}, data, localisedData[locale]);
+  return gulp.src(`src/templates/pages/${locale}/**/*.+(html|nunjucks)`)
     .pipe(nunjucksRender({
       path: ['src/templates'],
-      data: { data: data }
+      data: { data: mergedData }
     }))
     .pipe(prettify({ config: './jsbeautifyrc.json' }))
-    .pipe(gulp.dest('dist/'))
-  // .pipe(connect.reload());
-});
+    .pipe(gulp.dest(`dist/${locale}`))
+    .pipe(connect.reload());
+}
 
 // Compile all CSS
 gulp.task('compileCss', () => {
@@ -77,7 +129,7 @@ gulp.task('compileCss', () => {
     .pipe(minifyCSS({ specialComments: 'none' }))
     .pipe(rename({ extname: ".min.css" }))
     .pipe(gulp.dest('dist/assets/css'))
-  // .pipe(connect.reload());
+    .pipe(connect.reload());
 });
 
 // Lint app JS, warn about bad JS, break on errors
@@ -111,11 +163,6 @@ gulp.task('includeVendors', () => {
 // Live reload JS files in browser
 gulp.task('reloadJs', () => {
   return gulp.src(['dist/assets/js/**/*.js'])
-  // .pipe(connect.reload());
-});
-
-gulp.task('reload', () => {
-  return gulp.src(['src/**/*'])
     .pipe(connect.reload());
 });
 
@@ -134,13 +181,12 @@ gulp.task('compileJs',
 gulp.slurped = false; // step 1
 gulp.task('watch', () => {
   if (!gulp.slurped) { // step 2
-    gulp.watch(['src/public/**/*'], gulp.parallel('copyPublic', 'reload'));
-    gulp.watch(['src/templates/**/*.+(html|nunjucks|json)'], gulp.series('compileHtml', 'reload'));
-    gulp.watch(['src/styles/**/*.scss'], gulp.series('compileCss', 'reload'));
-    gulp.watch(['src/js/**/*.js', '.babelrc', '.eslintrc'], gulp.series('compileJs', 'reload'));
-    gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build', 'reload']));
-    gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build', 'reload']));
-    // gulp.watch(['dist/**/*'], gulp.series(['reload']));
+    gulp.watch(['src/public/**/*'], gulp.parallel('copyPublic'));
+    gulp.watch(['src/templates/**/*.+(html|nunjucks|json)'], gulp.series('compileHtml'));
+    gulp.watch(['src/styles/**/*.scss'], gulp.series('compileCss'));
+    gulp.watch(['src/js/**/*.js', '.babelrc', '.eslintrc'], gulp.series('compileJs'));
+    gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build']));
+    gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build']));
     gulp.slurped = true; // step 3
   }
 });
@@ -168,7 +214,8 @@ gulp.task('build',
   gulp.series(
     'deleteDist',
     gulp.parallel(
-      'compileHtml',
+      'compileHtmlDutch',
+      'compileHtmlEnglish',
       'compileCss',
       'compileJs',
       'copyPublic',
