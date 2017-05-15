@@ -1,0 +1,39 @@
+{% extends "layouts/page.nunjucks" %}
+{% block meta %}
+  <title>Medewerkers</title>
+  <meta name="description" content="">
+{% endblock %}
+{% block id %}medewerkers{% endblock %}
+{% block main %}
+
+  <div class="carousel next">
+    <div class="photos">
+      <img src="/assets/images/huisarts-frank-poelstra.jpg" alt="Huisarts Frank Poelstra" class="active">
+      <img src="/assets/images/praktijk-manager-petra-poelstra-kranenburg.jpg" alt="Praktijk Manager &amp; praktijkondersteuner Petra Poelstra Kranenburg">
+      <img src="/assets/images/dokterassistente-gea-tissingh-hidding.jpg" alt="Praktijkondersteuner &amp; dokterassistente Gea Tissingh-Hidding">
+      <img src="/assets/images/dokterassistente-irene-dekkers.jpg" alt="Praktijkondersteuner &amp; dokterassistente Irene Dekkers">
+      <img src="/assets/images/praktijkondersteuner-tara-paalvast.jpg" alt="Praktijkondersteuner GGZ Tara Paalvast">
+      <img src="/assets/images/dokterassistent-suraja-sewdin.jpg" alt="Dokterassistente Suraja Sewdin">
+    </div>
+    <div class="buttons">
+      <button class="prev">Vorige</button>
+      <button class="next">Volgende</button>
+    </div>
+  </div>
+  <h1><span>Medewerkers</span></h1>
+  <h2>Praktijkondersteuner</h2>
+  <p>Binnen de praktijk houdt de praktijkondersteuner zich bezig met de zorg aan chronisch zieken. Er zijn speciale spreekuren voor Diabetes mellitus, Astma Copd, Hypertensie en Hartfalen. De praktijkondersteuner is deskundig op het gebied van begeleiding en voorlichting en heeft meer tijd voor het bespreken van uw vragen.</p>
+  <h2>Praktijkondersteuner GGZ</h2>
+  <p>Binnen de praktijk houdt de praktijkondersteuner GGZ zich bezig met de geestelijke gezondheidszorg. Zij is deskundig en biedt begeleiding bij psychische of emotionele klachten.</p>
+  <h2>Doktersassistente</h2>
+  <p>Voor veel praktische zaken en eenvoudige medische vragen kunt u terecht bij de doktersassistente. Tijdens de openingstijden van de balie, 08.00 tot 10.00 uur en 13.30 tot 15.00 uur, kunt u onder meer bij haar terecht voor:</p>
+  <ul>
+    <li>Urine-onderzoek</li>
+    <li>Zwangerschapstest (kosten 10 euro)</li>
+    <li>Injecties</li>
+    <li>Verwijderen van hechtingen</li>
+    <li>Uitspuiten van de oren</li>
+    <li>Uitstrijkjes</li>
+  </ul>
+
+{% endblock %}

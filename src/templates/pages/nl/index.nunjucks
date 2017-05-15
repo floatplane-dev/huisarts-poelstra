@@ -1,7 +1,7 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Huisarts Poelstra</title>
-  <meta name="description" content="">
+  <title>Huisarts Frank Poelstra - Oudedijk, Rotterdam</title>
+  <meta name="description" content="Welkom bij Huisartspraktijk Poelstra gelegen aan de Oudedijk 299a, nabij Rotterdam. Je kan ons telefonisch bereiken op 010-45 20 330.">
 {% endblock %}
 {% block id %}landing{% endblock %}
 {% block main %}
@@ -22,7 +22,12 @@
   <h1>
     <span>Welkom</span>
   </h1>
-  <p>Van harte welkom op de website van <strong>Huisartspraktijk Poelstra</strong>. Onze praktijk is, sinds 21 mei 2012, gevestigd aan de Oudedijk 299a. Wij hechten veel waarde aan persoonlijke zorg en begeleiding van onze patiënten.</p>
-  <p>U kunt ons telefonisch bereiken op het nummer <strong>010-45 20 330</strong> waarbij u wordt verbonden met onze telefooncentrale. Luister goed naar het bericht voordat u een keuze maakt. In het geval van <strong>spoed</strong> kiest u 1.</p>
+  <p>Van harte welkom op de website van
+    <strong>Huisartspraktijk Poelstra</strong>. Onze praktijk is, sinds 21 mei 2012, gevestigd aan de Oudedijk 299a, nabij Rotterdam. Wij hechten veel waarde aan persoonlijke zorg en begeleiding van onze patiënten.</p>
+  <p>U kunt ons telefonisch bereiken op het nummer
+    <strong>010-45 20 330</strong>
+    waarbij u wordt verbonden met onze telefooncentrale. Luister goed naar het bericht voordat u een keuze maakt. In het geval van
+    <strong>spoed</strong>
+    kiest u 1.</p>
 
 {% endblock %}

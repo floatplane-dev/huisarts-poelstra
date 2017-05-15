@@ -1,18 +1,18 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Huisarts Poelstra</title>
-  <meta name="description" content="">
+  <title>GP Frank Poelstra - Oudedijk, Rotterdam</title>
+  <meta name="description" content="Welcome to GP practice Poelstra located at Oudedijk 299a, Rotterdam. You can reach us by telephone on 010-45 20 330.">
 {% endblock %}
 {% block id %}landing{% endblock %}
 {% block main %}
 
   <div class="carousel next">
     <div class="photos">
-      <img src="/assets/images/huisart-frank-poelstra-consultatie.jpg" alt="Huisarts Frank Poelstra in zijn consultatieruimte" class="active">
-      <img src="/assets/images/stethoscoop.jpg" alt="Stethoscoop van huisarts Frank Poelstra op houten tafel">
-      <img src="/assets/images/kunstwerk.jpg" alt="Kunstwerk in Huisartspraktijk Poelstra">
-      <img src="/assets/images/balie.jpg" alt="Balie van Huisartspraktijk Poelstra">
-      <img src="/assets/images/wachtzaal.jpg" alt="Wachtzaal van Huisartspraktijk Poelstra">
+      <img src="/assets/images/huisart-frank-poelstra-consultatie.jpg" alt="GP Frank Poelstra in his consultation room" class="active">
+      <img src="/assets/images/stethoscoop.jpg" alt="The stethoscope of GP Frank Poelstra on wooden table">
+      <img src="/assets/images/kunstwerk.jpg" alt="Art work in GP Practice Poelstra">
+      <img src="/assets/images/balie.jpg" alt="The reception of GP Practice Poelstra">
+      <img src="/assets/images/wachtzaal.jpg" alt="The waiting room of GP Practice Poelstra">
     </div>
     <div class="buttons">
       <button class="prev">Prev</button>
@@ -22,7 +22,11 @@
   <h1>
     <span>Welcome</span>
   </h1>
-  <p>Welcome to <strong>General Practice Frank Poelstra</strong>. Our practice is located at Oudedijk 299a since 21 May 2012. We value providing great personal care and guiding our patients.</p>
-  <p>You can always reach us by telephone on <strong>010-45 20 330</strong>. Please listen carefully to the recordings before making a choice. In case of <strong>emergency</strong> please choose option 1.</p>
+  <p>Welcome to
+    <strong>General Practice Frank Poelstra</strong>. Our practice is located at Oudedijk 299a, Rotterdam since 21 May 2012. We value providing great personal care and guiding our patients.</p>
+  <p>You can always reach us by telephone on
+    <strong>010-45 20 330</strong>. Please listen carefully to the recordings before making a choice. In case of
+    <strong>emergency</strong>
+    please choose option 1.</p>
 
 {% endblock %}

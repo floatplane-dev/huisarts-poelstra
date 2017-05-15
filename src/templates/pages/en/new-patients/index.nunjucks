@@ -1,0 +1,16 @@
+{% extends "layouts/page.nunjucks" %}
+{% block meta %}
+  <title>Inschrijven</title>
+  <meta name="description" content="">
+{% endblock %}
+{% block id %}inschrijven{% endblock %}
+{% block main %}
+
+  <h1><span>Inschrijven</span></h1>
+  <p>Onze praktijk is <strong>drukbezocht</strong> en daarom is inschrijving van nieuwe patiënten beperkt.</p>
+  <p>Indien u woont in de postcode <strong>3061</strong> en u nog geen huisarts heeft in de wijk, dan kunt u zich inschrijven door langs te komen op maandag t/m vrijdag tussen 08.00 en 10.00 uur of tussen 13.30 en 15.00 uur. U kunt het volgende formulier downloaden en ingevuld persoonlijk aan de balie bezorgen. U dient uw verzekeringspasje en id bewijs mee te nemen:</p>
+  <p><a href="/assets/documents/inschrijfformulier.pdf" target="_blank">Inschrijfformulier.pdf</a></p>
+  <p>Via de onderstaande link kunt u online toestemming geven uw medische gegevens te delen via het Landelijk Schakel Punt. Andere zorgverleners in de regio, zoals de apotheek en de huisartsenpost , kunnen bv bij een spoedgeval dan uw medisch dossier inzien.</p>
+  <p><a href="https://www.ikgeeftoestemming.nl/nl/registratie/toestemming-regelen/01050727" target="_blank">https://www.ikgeeftoestemming.nl/nl/registratie/toestemming-regelen/01050727</a></p>
+
+{% endblock %}

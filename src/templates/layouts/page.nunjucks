@@ -15,7 +15,7 @@
     {% include "partials/header.html" %}
     <main>
       <div class="inner">
-        {% include "partials/nav.html" %}
+        {% include "partials/nav.nunjucks" %}
         <article>
           <div class="bg-box"></div>
           <div class="bg-fade"></div>

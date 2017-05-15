@@ -29,43 +29,36 @@ const data = {
 
 const localisedData = {
   nl: {
+    locale: 'nl',
     languageCode: 'nl-NL',
-    nav: {
-      welcome: {
-        url: '/nl',
-        label: 'Welkom'
-      },
-      welcome: {
-        url: '/nl/spreekuren',
-        label: 'Spreekuren'
-      },
-      welcome: {
-        url: '/nl/spoedgeval',
-        label: 'Spoedgeval'
-      },
-    } <
-    li > < a href = "/" > Welkom < /a></li >
-    <
-    li > < a href = "/spreekuren" > Spreekuren < /a></li >
-    <
-    li > < a href = "/spoedgeval" > Spoedgeval < /a></li >
-    <
-    li > < a href = "/inschrijving" > Inschrijving < /a></li >
-    <
-    li > < a href = "/herhaalrecepten" > Herhaalrecepten < /a></li >
-    <
-    li > < a href = "/sluitingsdagen" > Sluitingsdagen < /a></li >
-    <
-    li > < a href = "/medewerkers" > Medewerkers < /a></li >
-    <
-    li > < a href = "/interessante-links" > Interessante links < /a></li >
-    <
-    li > < a href = "/klachten" > Klachten < /a></li >
-    <
-    li > < a href = "/contact" > Contact < /a></li >
+    links: [
+      { label: 'Welkom', url: '/nl' },
+      { label: 'Spreekuren', url: '/nl/spreekuren' },
+      { label: 'Spoedgeval', url: '/nl/spoedgeval' },
+      { label: 'Inschrijving', url: '/nl/inschrijving' },
+      { label: 'Herhaalrecepten', url: '/nl/herhaalrecepten' },
+      { label: 'Sluitingsdagen', url: '/nl/sluitingsdagen' },
+      { label: 'Medewerkers', url: '/nl/medewerkers' },
+      { label: 'Interessante links', url: '/nl/interessante-links' },
+      { label: 'Klachten', url: '/nl/klachten' },
+      { label: 'Contact', url: '/nl/contact' }
+    ]
   },
   en: {
-    languageCode: 'en-NL'
+    locale: 'en',
+    languageCode: 'en-NL',
+    links: [
+      { label: 'Welcome', url: '/en' },
+      { label: 'Consultations', url: '/en/consultations' },
+      { label: 'Emergencies', url: '/en/emergencies' },
+      { label: 'New patients', url: '/en/new-patients' },
+      { label: 'Repeat prescriptions', url: '/en/repeat-prescriptions' },
+      { label: 'Closing days', url: '/en/closing-days' },
+      { label: 'Meet our team', url: '/en/our-team' },
+      { label: 'Interesting links', url: '/en/interesting-links' },
+      { label: 'Complaints', url: '/en/complaints' },
+      { label: 'Contact', url: '/en/contact' }
+    ]
   }
 };
 
@@ -182,7 +175,7 @@ gulp.slurped = false; // step 1
 gulp.task('watch', () => {
   if (!gulp.slurped) { // step 2
     gulp.watch(['src/public/**/*'], gulp.parallel('copyPublic'));
-    gulp.watch(['src/templates/**/*.+(html|nunjucks|json)'], gulp.series('compileHtml'));
+    gulp.watch(['src/templates/**/*.+(html|nunjucks|json)'], gulp.parallel(['compileHtmlDutch', 'compileHtmlEnglish']));
     gulp.watch(['src/styles/**/*.scss'], gulp.series('compileCss'));
     gulp.watch(['src/js/**/*.js', '.babelrc', '.eslintrc'], gulp.series('compileJs'));
     gulp.watch(['gulpfile.babel.js', 'package.json', 'bower.json'], gulp.series(['build']));
