@@ -1,23 +1,31 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Spreekuren</title>
-  <meta name="description" content="">
+  <title>Consultations</title>
+  <meta name="description" content="To book your appointment please call us between 7:30 AM and 9:00 AM on 010 45 20 330 [option 3].">
 {% endblock %}
-{% block id %}Spreekuren{% endblock %}
+{% block id %}spreekuren{% endblock %}
 {% block main %}
 
-  <h1><span>Spreekuren</span></h1>
-  <h2>Spreekuur op afspraak</h2>
-  <p>Van maandag tot en met vrijdag is er iedere ochtend een spreekuur op afspraak. Voor het <strong>maken van een afspraak</strong> kunt u bellen tussen 7.30 en 9.00 uur op ons algemene nummer 010 45 20 330 [keuze 3]. Bij verhindering van een gemaakte afspraak dit graag zo spoedig mogelijk telefonisch doorgeven.</p>
-  <h2>Inloopspreekuur</h2>
-  <p>Op werkdagen is er iedere middag een inloopspreekuur tussen 14.30 en 15.00 uur. Hiervoor hoeft u <strong>geen afspraak</strong> te maken. Houdt u rekening met een mogelijke wachttijd.</p>
-  <h2>Telefonisch spreekuur</h2>
-  <p>Voor het telefonisch spreekuur zijn wij bereikbaar op werkdagen tussen 13.30 en 14.00 uur op het algemeen nummer 010 45 20 330 [keuze 4].</p>
-  <h2>Visites</h2>
-  <p>Visites dienen voor 10.00 uur aangevraagd te worden (behalve spoedgevallen) in verband met de indeling van de werkdag. U kunt ons hiervoor op werkdagen bereiken op het algemeen nummer 010 45 20 330 [keuze 3]. Huisbezoeken kosten veel tijd en zijn beperkt tot die gevallen waarbij komst naar de praktijk door ziekte niet mogelijk is.</p>
-  <h2>Bloedprikken</h2>
-  <p>Voor bloedprikken kunt u in de ochtend terecht in de praktijk. U dient hiervoor <strong>telefonisch een afspraak</strong> te maken. Tevens kunt u terecht bij de <a href="https://www.star-mdc.nl/" target="_blank">STAR</a> van maandag t/m donderdag tussen 7.00 en 19.00 uur en op vrijdag tussen 7.00 en 17.00 uur. Adres: Blaak 28 in Rotterdam.</p>
-  <h2>Spoedgevallen</h2>
-  <p>Voor spoedgevallen buiten onze openingstijden kunt u contact opnemen met de Telefonische antwoord service (dokterstelefoon) op telefoonnummer 010- 420 11 00.</p>
+  <h1>
+    <span>Consultations</span>
+  </h1>
+  <h2>Consultations on appointment</h2>
+  <p>Every morning from Monday until Friday we receive patients
+    <strong>with appointments</strong>. To book your appointment please call us between 7:30 AM and 9:00 AM on 010 45 20 330 [option 3]. In case you become unable to attend your appointment, then please call us to cancel your appointment so we may tend to other patient. We much appreciate.</p>
+  <h2>Without appointment</h2>
+  <p>From Monday until Friday between 2:30 PM until 3:00 PM we receive patients
+    <strong>without appointment</strong>. You do not need to call ahead or book an appointment, you can just walk in. Do mind, variable waiting times are expected.</p>
+  <h2>Telephone consultations</h2>
+  <p>For telephonic consultations you can call us from Monday until Friday between 1:30 PM until 2:00 PM on 010 45 20 330 [option 4].</p>
+  <h2>Home visits</h2>
+  <p>Home visits have to be requested
+    <strong>before 10AM</strong>, except emergencies. Please call 010 45 20 330 [option 3] to request a visit. Do mind, because visits cost a lot of time, we have to limit visits only to those patients who are unable to visit our practice in person.</p>
+  <h2>Blood checks</h2>
+  <p>In case you need a blood check, then please book an appointment. We will be able to receive you in the morning. Alternatively, you can contact
+    <a href="https://www.star-mdc.nl/" target="_blank">STAR</a>
+    between from Monday until Thursday between 7:00 AM and 7:00 PM and on Friday between 7:00 PM and 5:00 PM. Address:
+    <a href="https://www.google.com.au/maps/place/Star-MDC/@51.9333772,4.4537734,13z/data=!4m8!1m2!2m1!1sSTAR+rotterdam+blaak!3m4!1s0x47c4335c5c02e7cf:0x927468e4be1a1345!8m2!3d51.9186968!4d4.4866038">Blaak 28, Rotterdam</a>.</p>
+  <h2>Emergencies</h2>
+  <p>For emergencies after hours please call the 'dokterstelefoon' on 010 420 11 00.</p>
 
 {% endblock %}
