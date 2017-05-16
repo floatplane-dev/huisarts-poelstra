@@ -188,12 +188,33 @@ main {
         display: flex;
         align-items: center;
         padding: 10px;
-        margin-top: 20px;
+        margin-top: 30px;
         color: $paragraph-grey;
         text-decoration: none;
         &:hover {
           color: $link-hover;
           text-decoration: underline;
+        }
+        &.en,
+        &.nl {
+          &:before {
+            content: ' ';
+            width: 20px;
+            height: 15px;
+            background-size: 20px 15px;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+          }
+        }
+        &.en {
+          &:before {
+            background-image: url('/assets/images/gb.svg');
+          }
+        }
+        &.nl {
+          &:before {
+            background-image: url('/assets/images/nl.svg');
+          }
         }
         img {
           width: 24px;
