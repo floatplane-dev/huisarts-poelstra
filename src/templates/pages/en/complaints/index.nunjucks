@@ -3,7 +3,7 @@
   <title>Complaints</title>
   <meta name="description" content="Do you have a complaint? Please do share your discontent with us so we can improve our service and care">
 {% endblock %}
-{% block id %}complaints{% endblock %}
+{% block id %}klachten{% endblock %}
 {% block main %}
 
   <h1>

@@ -1,16 +1,26 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Inschrijven</title>
-  <meta name="description" content="">
+  <title>New patients</title>
+  <meta name="description" content="We accept only few new patients. However, if you live in postcode 3061 we can take you on.">
 {% endblock %}
 {% block id %}inschrijven{% endblock %}
 {% block main %}
 
-  <h1><span>Inschrijven</span></h1>
-  <p>Onze praktijk is <strong>drukbezocht</strong> en daarom is inschrijving van nieuwe patiënten beperkt.</p>
-  <p>Indien u woont in de postcode <strong>3061</strong> en u nog geen huisarts heeft in de wijk, dan kunt u zich inschrijven door langs te komen op maandag t/m vrijdag tussen 08.00 en 10.00 uur of tussen 13.30 en 15.00 uur. U kunt het volgende formulier downloaden en ingevuld persoonlijk aan de balie bezorgen. U dient uw verzekeringspasje en id bewijs mee te nemen:</p>
-  <p><a href="/assets/documents/inschrijfformulier.pdf" target="_blank">Inschrijfformulier.pdf</a></p>
-  <p>Via de onderstaande link kunt u online toestemming geven uw medische gegevens te delen via het Landelijk Schakel Punt. Andere zorgverleners in de regio, zoals de apotheek en de huisartsenpost , kunnen bv bij een spoedgeval dan uw medisch dossier inzien.</p>
-  <p><a href="https://www.ikgeeftoestemming.nl/nl/registratie/toestemming-regelen/01050727" target="_blank">https://www.ikgeeftoestemming.nl/nl/registratie/toestemming-regelen/01050727</a></p>
+  <h1>
+    <span>New patients</span>
+  </h1>
+  <p>Our GP practice is
+    <strong>quite busy</strong>. That is why we can accept only few new patients.</p>
+  <p>If you live in the postcode
+    <strong>3061</strong>
+    and you do not yet have a GP, then you can subscribe to our practice by visiting us on Monday to Friday between 8:00 AM and 10:00 AM or between 1:30 PM and 3:00 PM. Please download the form below and hand it over in person to our reception staff:</p>
+  <p>
+    <a href="/assets/documents/inschrijfformulier.pdf" target="_blank">Inschrijfformulier.pdf</a>
+  </p>
+  <p>You are required to bring proof ID and insurrance.</p>
+  <p>Following the link below you can give 'Landelijk Schakel Punt' permissions to share your medical data with other health care providers, such as pharmasists and GPs, if ever in case of emergencies they need to see your medical data:</p>
+  <p>
+    <a href="https://www.ikgeeftoestemming.nl/nl/registratie/toestemming-regelen/01050727" target="_blank">https://www.ikgeeftoestemming.nl/nl/registratie/toestemming-regelen/01050727</a>
+  </p>
 
 {% endblock %}

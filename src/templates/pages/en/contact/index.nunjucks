@@ -1,7 +1,7 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
   <title>Contact</title>
-  <meta name="description" content="">
+  <meta name="description" content="Our address: GP Frank Poelstra, Oudedijk 299a, 3061 AL Rotterdam. Telephone: 010-4520330">
 {% endblock %}
 {% block id %}contact{% endblock %}
 {% block main %}
@@ -16,7 +16,7 @@
     <div>
       <dl>
         <dt>Telephone:</dt>
-        <dd>010- 45 20 330</dd>
+        <dd>010-4520330</dd>
         <dt>Address:</dt>
         <dd>GP Frank Poelstra<br>
           Oudedijk 299a<br>

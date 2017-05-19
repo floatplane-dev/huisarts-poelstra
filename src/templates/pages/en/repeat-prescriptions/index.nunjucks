@@ -1,14 +1,19 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
-  <title>Herhaalrecepten</title>
+  <title>Repeat Prescriptions</title>
   <meta name="description" content="">
 {% endblock %}
 {% block id %}herhaalrecepten{% endblock %}
 {% block main %}
 
-  <h1><span>Repeat Prescriptions</span></h1>
-  <p>Repeat prescriptions (herhaalrecepten) can be requested by calling the <strong>'receptenlijn'</strong> on 010 45 20 330, [option 2]. By default your prescriptions will be sent to your pharmacy.</p>
-  <p>If request your prescription <strong>before 12PM</strong>, your medication should ready for pick-up the next day at your pharmacy.</p>
-  <p>Belangrijk is dat u duidelijk uw naam, geboortedatum en telefoonnummer inspreekt en de naam en sterkte van uw medicijnen.</p>
+  <h1>
+    <span>Repeat Prescriptions</span>
+  </h1>
+  <p>Repeat Prescriptions can be requested by calling the
+    <strong>prescription line</strong>
+    ('receptenlijn') on 010 45 20 330, [option 2]. By default your prescriptions will be sent to your pharmacy.</p>
+  <p>If request your prescription
+    <strong>before 12PM</strong>, your medication should ready for pick-up the next day at your pharmacy.</p>
+  <p>It's important that you clearly state your name, date of birth and phone nummer, as well the name and strength of your medication.</p>
 
 {% endblock %}

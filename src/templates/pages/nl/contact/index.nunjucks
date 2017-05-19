@@ -1,12 +1,14 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
   <title>Contact</title>
-  <meta name="description" content="">
+  <meta name="description" content="Adres: Huisartspraktijk F. Poelstra, Oudedijk 299a, 3061 AL Rotterdam. Telefoon: 010-4520330">
 {% endblock %}
 {% block id %}contact{% endblock %}
 {% block main %}
 
-  <h1><span>Contact</span></h1>
+  <h1>
+    <span>Contact</span>
+  </h1>
   <div class="columns">
     <div>
       <img src="/assets/images/huisartspraktijk-poelstra-voorgevel.jpg" alt="Huisartspraktijk Poelstra voorgevel in Rotterdam" width="300" height="200">
@@ -17,8 +19,8 @@
         <dd>010- 45 20 330</dd>
         <dt>Adres:</dt>
         <dd>Huisartspraktijk F. Poelstra<br>
-        Oudedijk 299a<br>
-        3061 AL Rotterdam</dd>
+          Oudedijk 299a<br>
+          3061 AL Rotterdam</dd>
       </dl>
     </div>
   </div>

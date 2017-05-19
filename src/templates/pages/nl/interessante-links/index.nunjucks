@@ -1,39 +1,56 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
   <title>Interessante links</title>
-  <meta name="description" content="">
+  <meta name="description" content="Interessante links naar onafhankelijke informatie over gezondheid en ziekte en het gebruik van medicatie.">
 {% endblock %}
 {% block id %}interessante-links{% endblock %}
 {% block main %}
 
-  <h1><span>Interessante links</span></h1>
+  <h1>
+    <span>Interessante links</span>
+  </h1>
   <ul>
     <li>
-      <p><a title="informatie over aandoeningen en medicijnen" href="http://www.thuisarts.nl" target="_blank">Thuisarts.nl</a></p>
-      <p>Onafhankelijke informatie over gezondheid en ziekte en het gebruik van medicatie. Deze informatie dient als ondersteuning van uw consult bij de huisarts en <strong>niet als vervanging</strong>.</p>
+      <p>
+        <a title="informatie over aandoeningen en medicijnen" href="http://www.thuisarts.nl" target="_blank">Thuisarts.nl</a>
+      </p>
+      <p>Onafhankelijke informatie over gezondheid en ziekte en het gebruik van medicatie. Deze informatie dient als ondersteuning van uw consult bij de huisarts en
+        <strong>niet als vervanging</strong>.</p>
     </li>
     <li>
-      <p><a title="Informatie over medicijnen" href="http://apotheek.nl" target="_blank">Apotheek.nl</a></p>
+      <p>
+        <a title="Informatie over medicijnen" href="http://apotheek.nl" target="_blank">Apotheek.nl</a>
+      </p>
       <p>Informatie voer medicijnen</p>
     </li>
     <li>
-      <p><a href="http://www.diabetesfonds.nl/?gclid=CJmR0PG21K0CFYGEDgodjjlrkw" target="_blank">Diabetes Fonds</a></p>
+      <p>
+        <a href="http://www.diabetesfonds.nl/?gclid=CJmR0PG21K0CFYGEDgodjjlrkw" target="_blank">Diabetes Fonds</a>
+      </p>
       <p>Informatie over diabetes</p>
     </li>
     <li>
-      <p><a href="http://www.dvn.nl/diabetes" target="_blank">DVN</a></p>
+      <p>
+        <a href="http://www.dvn.nl/diabetes" target="_blank">DVN</a>
+      </p>
       <p>Informatie over diabetes</p>
     </li>
     <li>
-      <p><a href="http://www.astmafonds.nl/" target="_blank">Astma Fonds</a></p>
+      <p>
+        <a href="http://www.astmafonds.nl/" target="_blank">Astma Fonds</a>
+      </p>
       <p>Informatie over Astma</p>
     </li>
     <li>
-      <p><a title="Alles over sport en voeding" href="http://www.voedingscentrum.nl" target="_blank">Voedingscentrum.nl</a></p>
+      <p>
+        <a title="Alles over sport en voeding" href="http://www.voedingscentrum.nl" target="_blank">Voedingscentrum.nl</a>
+      </p>
       <p>Alles over sport en voeding</p>
     </li>
     <li>
-      <p><a title="Over uw dagelijkse dosis aan beweging" href="http://30minutenbewegen.nl" target="_blank">30 minuten bewegen</a></p>
+      <p>
+        <a title="Over uw dagelijkse dosis aan beweging" href="http://30minutenbewegen.nl" target="_blank">30 minuten bewegen</a>
+      </p>
       <p>Over uw dagelijkse dosis beweging</p>
     </li>
   </ul>

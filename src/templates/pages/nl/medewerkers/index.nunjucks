@@ -1,7 +1,7 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
   <title>Medewerkers</title>
-  <meta name="description" content="">
+  <meta name="description" content="Ontmoet onze medewerkers.">
 {% endblock %}
 {% block id %}medewerkers{% endblock %}
 {% block main %}
@@ -20,7 +20,9 @@
       <button class="next">Volgende</button>
     </div>
   </div>
-  <h1><span>Medewerkers</span></h1>
+  <h1>
+    <span>Medewerkers</span>
+  </h1>
   <h2>Praktijkondersteuner</h2>
   <p>Binnen de praktijk houdt de praktijkondersteuner zich bezig met de zorg aan chronisch zieken. Er zijn speciale spreekuren voor Diabetes mellitus, Astma Copd, Hypertensie en Hartfalen. De praktijkondersteuner is deskundig op het gebied van begeleiding en voorlichting en heeft meer tijd voor het bespreken van uw vragen.</p>
   <h2>Praktijkondersteuner GGZ</h2>

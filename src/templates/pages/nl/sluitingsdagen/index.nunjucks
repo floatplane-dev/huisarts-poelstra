@@ -1,13 +1,14 @@
 {% extends "layouts/page.nunjucks" %}
 {% block meta %}
   <title>Sluitingsdagen</title>
-  <meta name="description" content="">
+  <meta name="description" content="Wanneer onze praktijk gesloten is en welke huisarts dan de waarnemingen doet.">
 {% endblock %}
 {% block id %}sluitingsdagen{% endblock %}
 {% block main %}
 
-  <h1><span>Sluitingsdagen</span></h1>
-
+  <h1>
+    <span>Sluitingsdagen</span>
+  </h1>
   <h2>Sluitingsdagen &amp; waarnemingen</h2>
   <p>De kalender hieronder toont wanneer onze praktijk gesloten is en welke dokter dan de waarnemingen doet. Gelieve in de kalender op de sluitingsperiod te klikken om te zien welke dokter je dan moet raadplegen.</p>
   <div class="calendar">
