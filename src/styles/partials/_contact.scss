@@ -8,12 +8,12 @@ body#contact {
     dl {
       margin: 0;
     }
-    dd+dt {
+    dd + dt {
       margin-top: 20px;
     }
     dd {
-      font-size: 19px;
       margin-left: 0;
+      font-size: 19px;
     }
   }
   iframe {

@@ -1,13 +1,13 @@
 body {
+  margin: 0;
   font-family: $font-stack;
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
   line-height: 150%;
   color: $paragraph-grey;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background: url('/assets/images/bg-pattern.jpg');
 }
 // The general layout of the page
@@ -16,12 +16,12 @@ header,
 section {
   min-width: 320px;
   > div {
-    min-width: 320px;
     max-width: 1080px;
-    margin: 0 auto;
-    box-sizing: border-box;
+    min-width: 320px;
     padding: 0 20px;
+    margin: 0 auto;
     overflow: hidden;
+    box-sizing: border-box;
   }
 }
 // To avoid <img> and <iframe> to have weird white space below them, make them a block
@@ -31,9 +31,9 @@ img {
 }
 // In most cases we use <ul> not as bullet lists and thus we strip them of all browser defaults
 ul {
-  list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  list-style: none;
   li {
     padding: 0;
   }
@@ -45,11 +45,11 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-family: $sakkal-regular;
   font-style: normal;
   font-weight: normal;
   line-height: 150%;
-  margin: 0;
 }
 dd,
 dt,
@@ -61,28 +61,28 @@ p {
 }
 a {
   display: inline-block;
-  text-decoration: underline;
   color: $link-green;
+  text-decoration: underline;
   &:hover {
     color: $link-hover;
   }
-  &[href$=".pdf"] {
+  &[href$='.pdf'] {
     padding-left: 20px;
     background: url('/assets/images/pdf.png') no-repeat;
   }
 }
 a.button,
 button {
-  font-family: $font-stack;
   display: inline-block;
+  padding: 0 14px;
+  font-family: $font-stack;
   font-size: 16px;
   line-height: 32px;
-  padding: 0 14px;
-  border: 0;
   color: white;
   cursor: pointer;
-  outline: 0;
   background: rgba(white, 0);
+  border: 0;
+  outline: 0;
   transition: background-color 300ms ease-out;
   &:hover {
     background: rgba(white, 0.3);
@@ -99,21 +99,21 @@ main {
 }
 main {
   position: relative;
+  min-height: 650px;
   margin-bottom: 200px;
   background: white;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  min-height: 650px;
   &:after,
   &:before {
-    content: ' ';
     position: absolute;
-    width: 100%;
     z-index: 0;
+    width: 100%;
+    content: ' ';
   }
   &:before {
     bottom: 0;
-    height: 50px;
     z-index: 2;
+    height: 50px;
     background: linear-gradient(to top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
   }
   &:after {
@@ -123,9 +123,9 @@ main {
   }
   > .inner {
     position: relative;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
-    z-index: 1;
     article,
     nav {
       > .inner {
@@ -135,30 +135,30 @@ main {
       }
       &:after,
       &:before {
-        content: ' ';
         position: absolute;
-        height: 640px;
         z-index: 1;
+        height: 640px;
+        content: ' ';
       }
       &:before {
-        width: calc(100% - 40px);
         top: 0;
         left: 20px;
+        width: calc(100% - 40px);
         background: white;
         box-shadow: 0 0 20px RGBA(0,0,0,0.2);
       }
       &:after {
-        width: 100%;
         top: 120px;
         left: 0;
+        width: 100%;
         background: linear-gradient(to top, rgba(255,255,255,1) 40%,rgba(255,255,255, 0) 100%);
       }
     }
     nav {
       width: 280px;
       padding: 0 20px;
-      box-sizing: border-box;
       transform: translateY(-60px);
+      box-sizing: border-box;
       &:after,
       &:before {
         height: 380px;
@@ -167,19 +167,19 @@ main {
         li {
           a {
             display: block;
-            height: 36px;
             width: 190px;
+            height: 36px;
             padding: 0 10px;
             font-size: 16px;
             line-height: 36px;
+            color: $paragraph-grey;
             text-align: left;
             text-decoration: none;
             border-bottom: 1px dotted #CDCDCD;
-            color: $paragraph-grey;
             &:hover {
-              background: url('/assets/images/bg-navigatie.jpg') no-repeat left top;
               color: #FFF;
               text-shadow: 1px 1px 10px rgba(black, 0.4);
+              background: url('/assets/images/bg-navigatie.jpg') no-repeat left top;
             }
           }
         }
@@ -198,12 +198,12 @@ main {
         &.en,
         &.nl {
           &:before {
-            content: ' ';
             width: 20px;
             height: 15px;
-            background-size: 20px 15px;
-            background-repeat: no-repeat;
             margin-right: 10px;
+            background-repeat: no-repeat;
+            background-size: 20px 15px;
+            content: ' ';
           }
         }
         &.en {
@@ -227,38 +227,38 @@ main {
       width: 100%;
       max-width: 720px;
       padding: 0 20px;
-      box-sizing: border-box;
       transform: translateY(-120px);
+      box-sizing: border-box;
       > .inner {
         position: relative;
         z-index: 2;
       }
       h1 {
-        background: url('/assets/images/bg-title.jpg');
         margin: 0 0 36px;
+        background: url('/assets/images/bg-title.jpg');
         span {
           display: block;
-          transform: translateY(4px);
-          color: white;
           padding: 0 15px;
           font-size: 50px;
           line-height: 50px;
+          color: white;
           text-shadow: 0 0 9px rgba(0,0,0,0.2);
+          transform: translateY(4px);
         }
       }
       h2 {
-        font-family: $font-stack;
-        font-weight: 700;
-        font-size: 20px;
         margin: 42px 30px 16px;
+        font-family: $font-stack;
+        font-size: 20px;
+        font-weight: 700;
       }
       p {
         margin: 16px 30px;
       }
       ul {
+        padding-left: 30px;
         margin: 16px 30px;
         list-style: disc;
-        padding-left: 30px;
         li {
           padding-left: 10px;
         }
