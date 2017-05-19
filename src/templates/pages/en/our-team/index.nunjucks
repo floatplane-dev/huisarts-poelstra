@@ -4,6 +4,7 @@
   <meta name="description" content="Meet our team.">
 {% endblock %}
 {% block id %}medewerkers{% endblock %}
+{% block nederlands %}/medewerkers{% endblock %}
 {% block main %}
 
   <div class="carousel next">

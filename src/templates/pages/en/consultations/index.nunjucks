@@ -4,6 +4,7 @@
   <meta name="description" content="To book your appointment please call us between 7:30 AM and 9:00 AM on 010 45 20 330 [option 3].">
 {% endblock %}
 {% block id %}spreekuren{% endblock %}
+{% block nederlands %}/contact{% endblock %}
 {% block main %}
 
   <h1>

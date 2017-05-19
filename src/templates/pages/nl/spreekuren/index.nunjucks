@@ -4,6 +4,7 @@
   <meta name="description" content="Voor het maken van een afspraak kunt u bellen tussen 7.30 en 9.00 uur op ons algemene nummer 010 45 20 330 [keuze 3].">
 {% endblock %}
 {% block id %}Spreekuren{% endblock %}
+{% block english %}/consultations{% endblock %}
 {% block main %}
 
   <h1>

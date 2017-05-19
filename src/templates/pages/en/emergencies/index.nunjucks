@@ -4,6 +4,7 @@
   <meta name="description" content="For emergencies call us on 010 45 20 330 [option 1] or 122.">
 {% endblock %}
 {% block id %}spoedgeval{% endblock %}
+{% block nederlands %}/spoedgeval{% endblock %}
 {% block main %}
 
   <h1>

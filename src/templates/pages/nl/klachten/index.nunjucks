@@ -4,6 +4,7 @@
   <meta name="description" content="Een klacht? Bespreek uw onvrede met uw huisarts.">
 {% endblock %}
 {% block id %}klachten{% endblock %}
+{% block english %}/complaints{% endblock %}
 {% block main %}
 
   <h1>

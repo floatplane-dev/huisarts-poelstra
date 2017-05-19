@@ -4,6 +4,7 @@
   <meta name="description" content="We accept only few new patients. However, if you live in postcode 3061 we can take you on.">
 {% endblock %}
 {% block id %}inschrijven{% endblock %}
+{% block nederlands %}/inschrijving{% endblock %}
 {% block main %}
 
   <h1>

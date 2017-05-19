@@ -4,6 +4,7 @@
   <meta name="description" content="">
 {% endblock %}
 {% block id %}herhaalrecepten{% endblock %}
+{% block nederlands %}/herhaalrecepten{% endblock %}
 {% block main %}
 
   <h1>

@@ -32,32 +32,32 @@ const localisedData = {
     locale: 'nl',
     languageCode: 'nl-NL',
     links: [
-      { label: 'Welkom', url: '/nl' },
-      { label: 'Spreekuren', url: '/nl/spreekuren' },
-      { label: 'Spoedgeval', url: '/nl/spoedgeval' },
-      { label: 'Inschrijving', url: '/nl/inschrijving' },
-      { label: 'Herhaalrecepten', url: '/nl/herhaalrecepten' },
-      { label: 'Sluitingsdagen', url: '/nl/sluitingsdagen' },
-      { label: 'Medewerkers', url: '/nl/medewerkers' },
-      { label: 'Interessante links', url: '/nl/interessante-links' },
-      { label: 'Klachten', url: '/nl/klachten' },
-      { label: 'Contact', url: '/nl/contact' }
+      { label: 'Welkom', url: '/nl/' },
+      { label: 'Spreekuren', url: '/nl/spreekuren/' },
+      { label: 'Spoedgeval', url: '/nl/spoedgeval/' },
+      { label: 'Inschrijving', url: '/nl/inschrijving/' },
+      { label: 'Herhaalrecepten', url: '/nl/herhaalrecepten/' },
+      { label: 'Sluitingsdagen', url: '/nl/sluitingsdagen/' },
+      { label: 'Medewerkers', url: '/nl/medewerkers/' },
+      { label: 'Interessante links', url: '/nl/interessante-links/' },
+      { label: 'Klachten', url: '/nl/klachten/' },
+      { label: 'Contact', url: '/nl/contact/' }
     ]
   },
   en: {
     locale: 'en',
     languageCode: 'en-NL',
     links: [
-      { label: 'Welcome', url: '/en' },
-      { label: 'Consultations', url: '/en/consultations' },
-      { label: 'Emergencies', url: '/en/emergencies' },
-      { label: 'New patients', url: '/en/new-patients' },
-      { label: 'Repeat prescriptions', url: '/en/repeat-prescriptions' },
-      { label: 'Closing days', url: '/en/closing-days' },
-      { label: 'Meet our team', url: '/en/our-team' },
-      { label: 'Interesting links', url: '/en/interesting-links' },
-      { label: 'Complaints', url: '/en/complaints' },
-      { label: 'Contact', url: '/en/contact' }
+      { label: 'Welcome', url: '/en/' },
+      { label: 'Consultations', url: '/en/consultations/' },
+      { label: 'Emergencies', url: '/en/emergencies/' },
+      { label: 'New patients', url: '/en/new-patients/' },
+      { label: 'Repeat prescriptions', url: '/en/repeat-prescriptions/' },
+      { label: 'Closing days', url: '/en/closing-days/' },
+      { label: 'Meet our team', url: '/en/our-team/' },
+      { label: 'Interesting links', url: '/en/interesting-links/' },
+      { label: 'Complaints', url: '/en/complaints/' },
+      { label: 'Contact', url: '/en/contact/' }
     ]
   }
 };

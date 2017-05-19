@@ -4,6 +4,7 @@
   <meta name="description" content="Onze praktijk is <strong>drukbezocht</strong> en daarom is inschrijving van nieuwe patiënten beperkt. Indien u woont in de postcode 3061 en u nog geen huisarts heeft in de wijk, dan kunt u zich inschrijven.">
 {% endblock %}
 {% block id %}inschrijven{% endblock %}
+{% block english %}/new-patients{% endblock %}
 {% block main %}
 
   <h1>

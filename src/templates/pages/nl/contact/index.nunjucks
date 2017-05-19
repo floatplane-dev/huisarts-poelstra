@@ -4,6 +4,7 @@
   <meta name="description" content="Adres: Huisartspraktijk F. Poelstra, Oudedijk 299a, 3061 AL Rotterdam. Telefoon: 010-4520330">
 {% endblock %}
 {% block id %}contact{% endblock %}
+{% block english %}/contact{% endblock %}
 {% block main %}
 
   <h1>

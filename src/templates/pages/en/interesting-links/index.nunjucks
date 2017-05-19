@@ -4,6 +4,7 @@
   <meta name="description" content="Interesting links to information supplementary to your consultation with your GP.">
 {% endblock %}
 {% block id %}interessante-links{% endblock %}
+{% block nederlands %}/interessante-links{% endblock %}
 {% block main %}
 
   <h1>

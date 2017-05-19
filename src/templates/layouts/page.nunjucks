@@ -15,7 +15,24 @@
     {% include "partials/header.html" %}
     <main>
       <div class="inner">
-        {% include "partials/nav.nunjucks" %}
+        <nav>
+          <div class="bg-box"></div>
+          <div class="bg-fade"></div>
+          <div class="inner">
+            <ul>
+              {% for link in data.links %}
+                <li>
+                  <a href="{{link.url}}">{{link.label}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% if data.locale == 'nl' %}
+              <a href="/en{% block english %}{% endblock %}" class="language en">English</a>
+            {% else %}
+              <a href="/nl{% block nederlands %}{% endblock %}" class="language nl">Nederlands</a>
+            {% endif %}
+          </div>
+        </nav>
         <article>
           <div class="bg-box"></div>
           <div class="bg-fade"></div>

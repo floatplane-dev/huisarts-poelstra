@@ -4,6 +4,7 @@
   <meta name="description" content="Our address: GP Frank Poelstra, Oudedijk 299a, 3061 AL Rotterdam. Telephone: 010-4520330">
 {% endblock %}
 {% block id %}contact{% endblock %}
+{% block nederlands %}/contact{% endblock %}
 {% block main %}
 
   <h1>

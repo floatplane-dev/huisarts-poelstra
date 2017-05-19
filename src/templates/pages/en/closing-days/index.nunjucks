@@ -4,6 +4,7 @@
   <meta name="description" content="See when our practice is closed and what to do if you need medical attention when we are closed.">
 {% endblock %}
 {% block id %}sluitingsdagen{% endblock %}
+{% block nederlands %}/sluitingsdagen{% endblock %}
 {% block main %}
 
   <h1>

@@ -4,6 +4,7 @@
   <meta name="description" content="Wanneer onze praktijk gesloten is en welke huisarts dan de waarnemingen doet.">
 {% endblock %}
 {% block id %}sluitingsdagen{% endblock %}
+{% block english %}/closing-days{% endblock %}
 {% block main %}
 
   <h1>
