@@ -22,6 +22,9 @@ section {
     margin: 0 auto;
     overflow: hidden;
     box-sizing: border-box;
+    @media (max-width: 850px) {
+      padding: 0 10px;
+    }
   }
 }
 // To avoid <img> and <iframe> to have weird white space below them, make them a block
@@ -125,7 +128,7 @@ main {
     position: relative;
     z-index: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     article,
     nav {
       > .inner {
@@ -146,6 +149,10 @@ main {
         width: calc(100% - 40px);
         background: white;
         box-shadow: 0 0 20px RGBA(0,0,0,0.2);
+        @media (max-width: 850px) {
+          left: 10px;
+          width: calc(100% - 20px);
+        }
       }
       &:after {
         top: 120px;
@@ -159,6 +166,16 @@ main {
       padding: 0 20px;
       transform: translateY(-60px);
       box-sizing: border-box;
+      @media (max-width: 1080px) {
+        width: 28vw;
+        padding: 0 2vw;
+      }
+      @media (max-width: 850px) {
+        position: fixed;
+        left: 0;
+        z-index: 1;
+        transform: translateY(-95px);
+      }
       &:after,
       &:before {
         height: 380px;
@@ -176,6 +193,10 @@ main {
             text-align: left;
             text-decoration: none;
             border-bottom: 1px dotted #CDCDCD;
+            @media (max-width: 1080px) {
+              width: 17.59259vw;
+              padding: 0 0.9259259vw;
+            }
             &:hover {
               color: #FFF;
               text-shadow: 1px 1px 10px rgba(black, 0.4);
@@ -229,6 +250,15 @@ main {
       padding: 0 20px;
       transform: translateY(-120px);
       box-sizing: border-box;
+      @media (max-width: 1080px) and (min-width: 851px) {
+        width: 72vw;
+        padding: 0 2vw;
+      }
+      @media (max-width: 850px) {
+        max-width: 700px;
+        padding: 0 10px;
+        transform: translateY(-95px);
+      }
       > .inner {
         position: relative;
         z-index: 2;
