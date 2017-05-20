@@ -118,6 +118,9 @@ main {
   margin-bottom: 200px;
   background: white;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  @media (max-width: 850px) {
+    margin-bottom: 80px;
+  }
   &:after,
   &:before {
     position: absolute;
@@ -153,7 +156,7 @@ main {
       &:before {
         position: absolute;
         z-index: 1;
-        height: 640px;
+        height: 620px;
         content: ' ';
       }
       &:before {
@@ -193,6 +196,14 @@ main {
       &:after,
       &:before {
         height: 380px;
+        // @media (max-width: 850px) {
+        //   left: 20px;
+        // }
+      }
+      .inner {
+        @media (max-width: 850px) {
+          left: -10px;
+        }
       }
       ul {
         li {
@@ -209,7 +220,7 @@ main {
             border-bottom: 1px dotted #CDCDCD;
             @media (max-width: 1080px) {
               width: 17.59259vw;
-              padding: 0 0.9259259vw;
+              // padding: 0 0.9259259vw;
             }
             @media (max-width: 850px) {
               width: 100%;
