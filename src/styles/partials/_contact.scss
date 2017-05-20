@@ -2,8 +2,20 @@ body#contact {
   .columns {
     display: flex;
     padding: 0 30px;
+    @media (max-width: 950px) {
+      flex-flow: column-reverse;
+      padding: 0 15px;
+    }
+    > div {
+      flex-shrink: 0;
+    }
     img {
+      height: auto;
+      max-width: 100%;
       margin-right: 36px;
+      @media (max-width: 950px) {
+        margin-top: 30px;
+      }
     }
     dl {
       margin: 0;

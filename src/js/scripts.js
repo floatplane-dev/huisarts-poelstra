@@ -11,12 +11,46 @@ if (ga && googleAnalyticsID) {
 let carousel;
 let photos;
 let currentPhoto = 0;
+let showingNav = false;
+let animatingCarousel = false;
 
 function init() {
+  bindMobileNavEvents();
   carousel = document.querySelector(`.carousel`);
   if (carousel) {
     bindCarouselEvents();
   }
+}
+
+function bindMobileNavEvents() {
+  const btn = document.querySelector(`header button`);
+  btn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggleMobileNav();
+  }, false);
+  document.querySelector('nav').addEventListener('click', (event) => {
+    event.stopPropagation();
+    openMobileNav();
+  }, false);
+  document.body.addEventListener('click', closeMobileNav, false);
+}
+
+function toggleMobileNav() {
+  if (showingNav) {
+    closeMobileNav();
+  } else {
+    openMobileNav();
+  }
+}
+
+function openMobileNav() {
+  document.body.classList.add('show-mobile-nav');
+  showingNav = true;
+}
+
+function closeMobileNav() {
+  document.body.classList.remove('show-mobile-nav');
+  showingNav = false;
 }
 
 function bindCarouselEvents() {
@@ -50,6 +84,7 @@ function bindCarouselEvents() {
 }
 
 function nextPhoto() {
+  // if (animatingCarousel) { return; }
   outroPhoto(currentPhoto, 'next');
   currentPhoto = ++currentPhoto;
   currentPhoto = currentPhoto >= photos.length ? 0 : currentPhoto;
@@ -57,6 +92,7 @@ function nextPhoto() {
 }
 
 function prevPhoto() {
+  // if (animatingCarousel) { return; }
   outroPhoto(currentPhoto, 'prev');
   currentPhoto = --currentPhoto;
   currentPhoto = currentPhoto < 0 ? (photos.length - 1) : currentPhoto;
@@ -70,8 +106,10 @@ function introPhoto(i, direction) {
 function outroPhoto(i, direction) {
   photos[i].classList.remove('active');
   photos[i].classList.add('outro');
+  // animatingCarousel = true;
   setTimeout(() => {
     photos[i].classList.remove('outro');
+    // animatingCarousel = false;
   }, 900);
 }
 

@@ -2,5 +2,9 @@ body#sluitingsdagen article {
   .calendar {
     padding: 0 30px;
     margin-top: 40px;
+    @media (max-width: 600px) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
   }
 }

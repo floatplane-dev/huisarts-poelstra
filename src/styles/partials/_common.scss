@@ -100,6 +100,18 @@ main {
     box-sizing: border-box;
   }
 }
+body.show-mobile-nav {
+  @media (max-width: 850px) {
+    header {
+      transform: translateX(-240px);
+    }
+    main > .inner {
+      max-width: 700px;
+      transform: translateX(-240px) !important;
+      transition: all 800ms $easeOutExpo;
+    }
+  }
+}
 main {
   position: relative;
   min-height: 650px;
@@ -129,6 +141,7 @@ main {
     z-index: 1;
     display: flex;
     justify-content: center;
+    transition: transform 800ms $easeOutExpo;
     article,
     nav {
       > .inner {
@@ -168,13 +181,14 @@ main {
       box-sizing: border-box;
       @media (max-width: 1080px) {
         width: 28vw;
-        padding: 0 2vw;
+        // padding: 0 2vw;
       }
       @media (max-width: 850px) {
-        position: fixed;
-        left: 0;
+        position: absolute;
+        right: 0;
         z-index: 1;
-        transform: translateY(-95px);
+        width: 240px;
+        transform: translateY(-95px) translateX(240px);
       }
       &:after,
       &:before {
@@ -196,6 +210,9 @@ main {
             @media (max-width: 1080px) {
               width: 17.59259vw;
               padding: 0 0.9259259vw;
+            }
+            @media (max-width: 850px) {
+              width: 100%;
             }
             &:hover {
               color: #FFF;
@@ -252,7 +269,7 @@ main {
       box-sizing: border-box;
       @media (max-width: 1080px) and (min-width: 851px) {
         width: 72vw;
-        padding: 0 2vw;
+        // padding: 0 2vw;
       }
       @media (max-width: 850px) {
         max-width: 700px;
@@ -281,14 +298,26 @@ main {
         font-family: $font-stack;
         font-size: 20px;
         font-weight: 700;
+        @media (max-width: 600px) {
+          margin-right: 15px;
+          margin-left: 15px;
+        }
       }
       p {
         margin: 16px 30px;
+        @media (max-width: 600px) {
+          margin-right: 15px;
+          margin-left: 15px;
+        }
       }
       ul {
         padding-left: 30px;
         margin: 16px 30px;
         list-style: disc;
+        @media (max-width: 600px) {
+          margin-right: 15px;
+          margin-left: 15px;
+        }
         li {
           padding-left: 10px;
         }

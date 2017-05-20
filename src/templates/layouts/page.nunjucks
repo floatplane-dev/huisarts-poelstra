@@ -12,7 +12,14 @@
     {% include "partials/favicons.html" %}
   </head>
   <body id="{% block id %}{% endblock %}">
-    {% include "partials/header.html" %}
+    <header>
+      <div class="inner">
+        <a href="/{{data.locale}}/" id="logo">
+          <img src="/assets/images/huisarts-poelstra-logo.png" alt="Logo van Huisartspraktijk Poelstra" width="234" height="143">
+        </a>
+        <button>Menu</button>
+      </div>
+    </header>
     <main>
       <div class="inner">
         <nav>
@@ -42,7 +49,6 @@
         </article>
       </div>
     </main>
-    {% include "partials/footer.html" %}
     {% include "partials/outdated-browsers.html" %}
   </body>
 </html>

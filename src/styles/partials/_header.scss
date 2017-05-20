@@ -1,11 +1,16 @@
 header {
   height: 220px;
   @media (max-width: 850px) {
-    width: 240px;
+    // width: 240px;
+    transition: transform 800ms $easeOutExpo;
   }
   .inner {
     position: relative;
     height: 100%;
+    @media (max-width: 850px) {
+      max-width: 700px;
+      margin: 0 auto;
+    }
   }
   a#logo {
     position: absolute;
@@ -25,14 +30,18 @@ header {
       }
     }
   }
-  nav#language {
+  button {
     position: absolute;
-    right: 0;
-    ul {
-      display: flex;
-    }
-    a {
-      color: white;
+    top: 10px;
+    right: 10px;
+    padding: 3px 10px 1px;
+    font-size: 24px;
+    text-shadow: 0 0 9px rgba(0,0,0,0.2);
+    background: url('/assets/images/bg-title.jpg');
+    border: 2px solid white;
+    box-shadow: 0 0 10px RGBA(0,0,0,0.1);
+    @media (min-width: 851px) {
+      display: none;
     }
   }
 }
