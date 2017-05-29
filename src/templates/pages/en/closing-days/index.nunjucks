@@ -11,7 +11,7 @@
     <span>Closing days</span>
   </h1>
   <h2>Closing days &amp; observations</h2>
-  <p>The calendar below shows when our practice is closed and which GP will be replacing us during those periods. Please click in the calendar below on the closing periods to see which doctor you should contact. Typically, there will be 2 GPs replacing us and patients whose last name starts with the letters A-K has to go to the first GP and patients with last names L-Z go to the other doctor.</p>
+  <p>The calendar below shows when our practice is closed and which GP will be replacing us during those periods. Please click in the calendar below on the closing periods to see which doctor you should contact. The first letter of your last name decides which GP you should contact.</p>
   <div class="calendar">
     <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;hl=en&amp;bgcolor=%23ffffff&amp;src=vnsb3jtqormqe6b7ri8hf0k4nc%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FAmsterdam" style="border-width:0" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
   </div>
