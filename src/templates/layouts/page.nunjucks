@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="developer" content="Jan Werkhoven">
-    <meta name="robots" content="index, follow">
+    <meta name="environment" content="{{data.environment}}">
+    {% if data.environment == 'production' %}
+      <meta name="robots" content="index, follow">
+    {% else %}
+      <meta name="robots" content="noindex, nofollow">
+    {% endif %}
     {# TODO: map all alternative links #}
     {# <link rel="alternate" href="{{data.sitemapRootUrl}}/nl/" hreflang="nl-NL"/> #}
     {# <link rel="alternate" href="{{data.sitemapRootUrl}}/en/{{path}}" hreflang="en-NL"/> #}
