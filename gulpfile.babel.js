@@ -16,7 +16,9 @@ import prettify from 'gulp-jsbeautifier';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
 import sass from 'gulp-sass';
+import sitemap from 'gulp-sitemap';
 import size from 'gulp-size';
+import tap from 'gulp-tap';
 import uglify from 'gulp-uglify';
 import util from 'gulp-util';
 
@@ -24,7 +26,8 @@ import util from 'gulp-util';
 const data = {
   projectName: 'Huisarts Poelstra',
   environment: util.env.env || 'development',
-  googleAnalyticsID: 'UA-34474019-XX'
+  googleAnalyticsID: 'UA-34474019-XX',
+  sitemapRootUrl: 'https://www.huisartspoelstra.nl'
 };
 
 const localisedData = {
@@ -99,14 +102,29 @@ gulp.task('compileHtmlEnglish', () => {
 function compileHtml(locale) {
   const mergedData = Object.assign({}, data, localisedData[locale]);
   return gulp.src(`src/templates/pages/${locale}/**/*.+(html|nunjucks)`)
+    // .pipe(tap(function(file, t) {
+    //   util.log(file.dirname.toString())
+    // }))
     .pipe(nunjucksRender({
       path: ['src/templates'],
-      data: { data: mergedData }
+      data: {
+        data: mergedData
+      }
     }))
     .pipe(prettify({ config: './jsbeautifyrc.json' }))
     .pipe(gulp.dest(`dist/${locale}`))
     .pipe(connect.reload());
 }
+
+gulp.task('sitemap', () => {
+  return gulp.src('dist/**/*.html')
+    .pipe(sitemap({
+      siteUrl: data.sitemapRootUrl,
+      changefreq: 'monthly',
+      priority: 0.5
+    }))
+    .pipe(gulp.dest('./dist'));
+});
 
 // Compile all CSS
 gulp.task('compileCss', () => {
@@ -207,8 +225,13 @@ gulp.task('build',
   gulp.series(
     'deleteDist',
     gulp.parallel(
-      'compileHtmlDutch',
-      'compileHtmlEnglish',
+      gulp.series(
+        gulp.parallel(
+          'compileHtmlDutch',
+          'compileHtmlEnglish'
+        ),
+        'sitemap'
+      ),
       'compileCss',
       'compileJs',
       'copyPublic',
