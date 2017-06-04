@@ -2060,6 +2060,12 @@ gulp-sourcemaps@1.6.0:
     through2 "^2.0.0"
     vinyl "^1.0.0"
 
+gulp-tap@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-tap/-/gulp-tap-1.0.1.tgz#e671124e1259b4cea219ed1ca97b7f585c334690"
+  dependencies:
+    through2 "^2.0.3"
+
 gulp-uglify@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/gulp-uglify/-/gulp-uglify-2.1.2.tgz#6db85b1d0ee63d18058592b658649d65c2ec4541"
