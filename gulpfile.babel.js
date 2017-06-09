@@ -26,7 +26,7 @@ import util from 'gulp-util';
 const data = {
   projectName: 'Huisarts Poelstra',
   environment: util.env.env || 'development',
-  googleAnalyticsID: 'UA-34474019-XX',
+  googleAnalyticsID: 'UA-26179509-4',
   sitemapRootUrl: 'https://www.huisartspoelstra.nl'
 };
 
