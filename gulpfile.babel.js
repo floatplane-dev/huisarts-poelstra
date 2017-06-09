@@ -117,7 +117,7 @@ function compileHtml(locale) {
 }
 
 gulp.task('sitemap', () => {
-  return gulp.src('dist/**/*.html')
+  return gulp.src(['dist/**/*.html', '!dist/google2dbd407974c11f6a.html'])
     .pipe(sitemap({
       siteUrl: data.sitemapRootUrl,
       changefreq: 'monthly',
