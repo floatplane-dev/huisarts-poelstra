@@ -1,22 +1,25 @@
-@import url( 'https://fonts.googleapis.com/css?family=Lusitana:400,700');
+@import url( "https://fonts.googleapis.com/css?family=Lusitana:400,700");
 
 @font-face {
-	font-family: 'Sakkal-Majalla-Bold';
-	font-style: normal;
-	src: url('/assets/fonts/subset-SakkalMajalla-Bold.eot');
-	src: url('/assets/fonts/subset-SakkalMajalla-Bold.eot?#iefix') format('embedded-opentype'),
-       url('/assets/fonts/subset-SakkalMajalla-Bold.woff2') format('woff2'),
-			 url('/assets/fonts/subset-SakkalMajalla-Bold.woff') format('woff'),
-			 url('/assets/fonts/subset-SakkalMajalla-Bold.ttf') format('truetype'),
-			 url('/assets/fonts/subset-SakkalMajalla-Bold.svg#SakkalMajalla-Bold') format('svg');
+  font-family: "Sakkal-Majalla-Bold";
+  font-style: normal;
+  src: url("/assets/fonts/subset-SakkalMajalla-Bold.eot");
+  src: url("/assets/fonts/subset-SakkalMajalla-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/subset-SakkalMajalla-Bold.woff2") format("woff2"),
+    url("/assets/fonts/subset-SakkalMajalla-Bold.woff") format("woff"),
+    url("/assets/fonts/subset-SakkalMajalla-Bold.ttf") format("truetype"),
+    url("/assets/fonts/subset-SakkalMajalla-Bold.svg#SakkalMajalla-Bold")
+      format("svg");
 }
 @font-face {
-	font-family: 'Sakkal-Majalla-Regular';
-	font-style: normal;
-	src: url('/assets/fonts/subset-SakkalMajalla.eot');
-	src: url('/assets/fonts/subset-SakkalMajalla.eot?#iefix') format('embedded-opentype'),
-			 url('/assets/fonts/subset-SakkalMajalla.woff2') format('woff2'),
-			 url('/assets/fonts/subset-SakkalMajalla.woff') format('woff'),
-			 url('/assets/fonts/subset-SakkalMajalla.ttf') format('truetype'),
-			 url('/assets/fonts/subset-SakkalMajalla.svg#SakkalMajalla') format('svg');
+  font-family: "Sakkal-Majalla-Regular";
+  font-style: normal;
+  src: url("/assets/fonts/subset-SakkalMajalla.eot");
+  src: url("/assets/fonts/subset-SakkalMajalla.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/subset-SakkalMajalla.woff2") format("woff2"),
+    url("/assets/fonts/subset-SakkalMajalla.woff") format("woff"),
+    url("/assets/fonts/subset-SakkalMajalla.ttf") format("truetype"),
+    url("/assets/fonts/subset-SakkalMajalla.svg#SakkalMajalla") format("svg");
 }

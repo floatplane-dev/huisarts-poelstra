@@ -8,7 +8,7 @@ body {
   font-weight: normal;
   line-height: 150%;
   color: $paragraph-grey;
-  background: url('/assets/images/bg-pattern.jpg');
+  background: url("/assets/images/bg-pattern.jpg");
 }
 // The general layout of the page
 footer,
@@ -69,9 +69,9 @@ a {
   &:hover {
     color: $link-hover;
   }
-  &[href$='.pdf'] {
+  &[href$=".pdf"] {
     padding-left: 20px;
-    background: url('/assets/images/pdf.png') no-repeat;
+    background: url("/assets/images/pdf.png") no-repeat;
   }
 }
 a.button,
@@ -117,7 +117,7 @@ main {
   min-height: 650px;
   margin-bottom: 200px;
   background: white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   @media (max-width: 850px) {
     margin-bottom: 80px;
   }
@@ -126,18 +126,26 @@ main {
     position: absolute;
     z-index: 0;
     width: 100%;
-    content: ' ';
+    content: " ";
   }
   &:before {
     bottom: 0;
     z-index: 2;
     height: 50px;
-    background: linear-gradient(to top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
   }
   &:after {
     top: 0;
     height: 100px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
   }
   > .inner {
     position: relative;
@@ -157,14 +165,14 @@ main {
         position: absolute;
         z-index: 1;
         height: 620px;
-        content: ' ';
+        content: " ";
       }
       &:before {
         top: 0;
         left: 20px;
         width: calc(100% - 40px);
         background: white;
-        box-shadow: 0 0 20px RGBA(0,0,0,0.2);
+        box-shadow: 0 0 20px RGBA(0, 0, 0, 0.2);
         @media (max-width: 850px) {
           left: 10px;
           width: calc(100% - 20px);
@@ -174,7 +182,11 @@ main {
         top: 120px;
         left: 0;
         width: 100%;
-        background: linear-gradient(to top, rgba(255,255,255,1) 40%,rgba(255,255,255, 0) 100%);
+        background: linear-gradient(
+          to top,
+          rgba(255, 255, 255, 1) 40%,
+          rgba(255, 255, 255, 0) 100%
+        );
       }
     }
     nav {
@@ -217,7 +229,7 @@ main {
             color: $paragraph-grey;
             text-align: left;
             text-decoration: none;
-            border-bottom: 1px dotted #CDCDCD;
+            border-bottom: 1px dotted #cdcdcd;
             @media (max-width: 1080px) {
               width: 17.59259vw;
               // padding: 0 0.9259259vw;
@@ -226,9 +238,10 @@ main {
               width: 100%;
             }
             &:hover {
-              color: #FFF;
+              color: #fff;
               text-shadow: 1px 1px 10px rgba(black, 0.4);
-              background: url('/assets/images/bg-navigatie.jpg') no-repeat left top;
+              background: url("/assets/images/bg-navigatie.jpg") no-repeat left
+                top;
             }
           }
         }
@@ -252,17 +265,17 @@ main {
             margin-right: 10px;
             background-repeat: no-repeat;
             background-size: 20px 15px;
-            content: ' ';
+            content: " ";
           }
         }
         &.en {
           &:before {
-            background-image: url('/assets/images/gb.svg');
+            background-image: url("/assets/images/gb.svg");
           }
         }
         &.nl {
           &:before {
-            background-image: url('/assets/images/nl.svg');
+            background-image: url("/assets/images/nl.svg");
           }
         }
         img {
@@ -293,14 +306,14 @@ main {
       }
       h1 {
         margin: 0 0 36px;
-        background: url('/assets/images/bg-title.jpg');
+        background: url("/assets/images/bg-title.jpg");
         span {
           display: block;
           padding: 0 15px;
           font-size: 50px;
           line-height: 50px;
           color: white;
-          text-shadow: 0 0 9px rgba(0,0,0,0.2);
+          text-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
           transform: translateY(4px);
         }
       }

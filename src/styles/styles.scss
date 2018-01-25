@@ -1,17 +1,17 @@
 // Normalise browsers
 // https://www.npmjs.com/package/node-normalize-scss
-@import 'normalize';
+@import "normalize";
 
 // SASS
-@import 'partials/variables';
-@import 'partials/mixins';
+@import "partials/variables";
+@import "partials/mixins";
 
 // Commons
-@import 'partials/fonts';
-@import 'partials/common';
-@import 'partials/header';
-@import 'partials/footer';
-@import 'partials/carousel';
-@import 'partials/contact';
-@import 'partials/interessante-links';
-@import 'partials/sluitingsdagen';
+@import "partials/fonts";
+@import "partials/common";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/carousel";
+@import "partials/contact";
+@import "partials/interessante-links";
+@import "partials/sluitingsdagen";
