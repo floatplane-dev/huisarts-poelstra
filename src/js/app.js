@@ -1,12 +1,23 @@
+const isAfter = require("date-fns/is_after");
+const isBefore = require("date-fns/is_before");
+const startOfDay = require("date-fns/start_of_day");
+const endOfDay = require("date-fns/end_of_day");
+const ga = require("./vendor/google-analytics");
+
 const environment = "/* @echo environment */";
 const googleAnalyticsID = "/* @echo googleAnalyticsID */";
 
 // Fire page view to Google Analytics
-if (ga && googleAnalyticsID) {
+if (ga && googleAnalyticsID.startsWith("UA")) {
   ga("create", googleAnalyticsID, "auto");
   ga("set", { dimension1: environment });
   ga("send", "pageview");
 }
+
+const utcOffset = 1; // Netherlands is GMT+1 (+2 in summer)
+const date = new Date(); // Now on this device
+const utc = date.getTime() + date.getTimezoneOffset() * 60000;
+const now = new Date(utc + 3600000 * utcOffset); // Now in the Netherlands
 
 let carousel;
 let photos;
@@ -28,20 +39,13 @@ function checkForCalendarEvents() {
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       const response = JSON.parse(request.response);
-
-      response.items.filter(item => {
-        // const start = new Date(item.start.date).getTime();
-        // const end = new Date(item.end.date).getTime();
-        // const now = new Date().getTime();
-        //
-        // if (
-        //   start.getTime() <= to.getTime() &&
-        //   check.getTime() >= from.getTime()
-        // );
+      const todayEvents = response.items.filter(item => {
+        const isPast = isBefore(now, startOfDay(item.start.date));
+        const isFuture = isAfter(now, endOfDay(item.end.date));
+        console.log(item.start.date, item.end.date, isPast, isFuture);
+        return !isPast && !isFuture;
       });
-      debugger;
-    } else {
-      debugger;
+      console.log(todayEvents);
     }
   };
   request.onerror = function() {

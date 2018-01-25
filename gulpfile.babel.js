@@ -1,6 +1,5 @@
 "use strict";
 
-// Gulp packages
 import autoprefixer from "gulp-autoprefixer";
 import babel from "gulp-babel";
 import concat from "gulp-concat";
@@ -18,11 +17,21 @@ import replace from "gulp-replace";
 import sass from "gulp-sass";
 import sitemap from "gulp-sitemap";
 import size from "gulp-size";
-import tap from "gulp-tap";
 import uglify from "gulp-uglify";
 import util from "gulp-util";
 
-// Constants used for building the project
+var browserify = require("browserify");
+var babelify = require("babelify");
+var source = require("vinyl-source-stream");
+
+gulp.task("js", function() {
+  return browserify("./src/js/app.js")
+    .transform("babelify", { presets: ["es2015"] })
+    .bundle()
+    .pipe(source("app.min.js"))
+    .pipe(gulp.dest("./dist/assets/js"));
+});
+
 const data = {
   projectName: "Huisarts Poelstra",
   environment: util.env.env || "development",
@@ -196,7 +205,11 @@ gulp.task("compileProjectJs", () => {
 // Add vendor files to minified project JS
 gulp.task("includeVendors", () => {
   return gulp
-    .src(["src/js/vendor/google-analytics.js", "dist/assets/js/scripts.min.js"])
+    .src([
+      "src/js/vendor/google-analytics.js",
+      "node_modules/js/vendor/google-analytics.js",
+      "dist/assets/js/scripts.min.js"
+    ])
     .pipe(concat("scripts.min.js"), { newLine: "\n\n\n\n" })
     .pipe(replace(/^\s*\r?\n/gm, ""))
     .pipe(gulp.dest("dist/assets/js/"));
@@ -225,12 +238,15 @@ gulp.task("watch", () => {
       gulp.parallel(["compileHtmlDutch", "compileHtmlEnglish"])
     );
     gulp.watch(["src/styles/**/*.scss"], gulp.series("compileCss"));
+    gulp.watch(["src/js/**/*.js"], gulp.series("js"));
     gulp.watch(
-      ["src/js/**/*.js", ".babelrc", ".eslintrc"],
-      gulp.series("compileJs")
-    );
-    gulp.watch(
-      ["gulpfile.babel.js", "package.json", "bower.json"],
+      [
+        "gulpfile.babel.js",
+        "package.json",
+        "bower.json",
+        ".babelrc",
+        ".eslintrc"
+      ],
       gulp.series(["build"])
     );
     gulp.watch(
@@ -278,7 +294,7 @@ gulp.task(
         "sitemap"
       ),
       "compileCss",
-      "compileJs",
+      "js",
       "copyPublic",
       "copyOutdatedBrowserJs",
       "copyOutdatedBrowserCss"
