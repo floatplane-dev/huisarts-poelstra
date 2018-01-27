@@ -173,7 +173,7 @@ gulp.task("js-lint", () => {
 });
 
 // TODO: Use environment variables inside of Browserify?
-gulp.task("js-process", function() {
+gulp.task("js-preprocess", function() {
   return gulp
     .src(["src/js/*.js"])
     .pipe(preprocess({ context: data }))
@@ -229,7 +229,13 @@ gulp.task("js-reload", () => {
 // Build all JS files
 gulp.task(
   "js",
-  gulp.series("js-lint", "js-process", "js-compile", "js-reload")
+  gulp.series(
+    "js-lint",
+    "js-preprocess",
+    "js-compile",
+    "js-reload",
+    "delete-temp"
+  )
 );
 
 // Watch all files and run tasks when files change

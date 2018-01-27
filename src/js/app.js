@@ -6,7 +6,7 @@ const isAfter = require("date-fns/is_after");
 const isBefore = require("date-fns/is_before");
 const startOfDay = require("date-fns/start_of_day");
 
-const ga = require("./google-analytics");
+const googleAnalytics = require("./google-analytics");
 
 const environment = "/* @echo environment */";
 const googleAnalyticsID = "/* @echo googleAnalyticsID */";
@@ -33,6 +33,7 @@ function init() {
 // Only fire if ga is present and not removed by privacy guarding browser plugins
 // Only continue if a the UA-ID was correctly embedded in this file (sometime fails)
 function sendPageViewToGA() {
+  googleAnalytics;
   if (ga && googleAnalyticsID.startsWith("UA")) {
     ga("create", googleAnalyticsID, "auto");
     ga("set", { dimension1: environment });

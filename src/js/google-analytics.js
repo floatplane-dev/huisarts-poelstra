@@ -1,4 +1,4 @@
-(function(i, s, o, g, r, a, m) {
+export default (function(i, s, o, g, r, a, m) {
   i["GoogleAnalyticsObject"] = r;
   (i[r] =
     i[r] ||
