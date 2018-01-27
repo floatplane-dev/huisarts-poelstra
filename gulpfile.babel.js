@@ -182,6 +182,7 @@ gulp.task("js-process", function() {
 
 // TODO: Find way to include ES6 requires and imports without browserify
 // TODO: Pipe Browserify instead of seperate task
+// TODO: Use Envify
 // https://wehavefaces.net/gulp-browserify-the-gulp-y-way-bb359b3f9623
 gulp.task("js-compile", function() {
   return browserify("./temp/app.js")
