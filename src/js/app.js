@@ -6,7 +6,7 @@ const isAfter = require("date-fns/is_after");
 const isBefore = require("date-fns/is_before");
 const startOfDay = require("date-fns/start_of_day");
 
-const ga = require("./vendor/google-analytics");
+const ga = require("./google-analytics");
 
 const environment = "/* @echo environment */";
 const googleAnalyticsID = "/* @echo googleAnalyticsID */";

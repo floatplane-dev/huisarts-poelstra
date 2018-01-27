@@ -1,39 +1,25 @@
 "use strict";
 
 import autoprefixer from "gulp-autoprefixer";
-import babel from "gulp-babel";
-import concat from "gulp-concat";
+import browserify from "browserify";
 import connect from "gulp-connect";
 import del from "del";
 import eslint from "gulp-eslint";
 import gulp from "gulp";
+import gutil from "gulp-util";
 import minifyCSS from "gulp-clean-css";
-import noop from "gulp-noop";
 import nunjucksRender from "gulp-nunjucks-render";
 import preprocess from "gulp-preprocess";
 import prettify from "gulp-jsbeautifier";
 import rename from "gulp-rename";
-import replace from "gulp-replace";
 import sass from "gulp-sass";
 import sitemap from "gulp-sitemap";
 import size from "gulp-size";
-import uglify from "gulp-uglify";
-import util from "gulp-util";
-
-var browserify = require("browserify");
-var source = require("vinyl-source-stream");
-
-gulp.task("js", function() {
-  return browserify("./src/js/app.js")
-    .transform("babelify", { presets: ["es2015"] })
-    .bundle()
-    .pipe(source("app.min.js"))
-    .pipe(gulp.dest("./dist/assets/js"));
-});
+import source from "vinyl-source-stream";
 
 const data = {
   projectName: "Huisarts Poelstra",
-  environment: util.env.env || "development",
+  environment: gutil.env.env || "development",
   googleAnalyticsID: "UA-26179509-4",
   sitemapRootUrl: "https://www.huisartspoelstra.nl"
 };
@@ -74,12 +60,16 @@ const localisedData = {
 };
 
 // Delete the dist folder
-gulp.task("deleteDist", () => {
+gulp.task("delete-dist", () => {
   return del(["dist"]);
 });
 
+gulp.task("delete-temp", () => {
+  return del(["temp"]);
+});
+
 // Copy over all files from public folder "as they are" to the dist folder
-gulp.task("copyPublic", () => {
+gulp.task("copy-public", () => {
   return gulp
     .src("src/public/**/*")
     .pipe(gulp.dest("dist/"))
@@ -87,7 +77,7 @@ gulp.task("copyPublic", () => {
 });
 
 // Copy the outdatedbrowser JS
-gulp.task("copyOutdatedBrowserJs", () => {
+gulp.task("copy-outdated-browser-js", () => {
   return gulp
     .src(
       "bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js"
@@ -96,7 +86,7 @@ gulp.task("copyOutdatedBrowserJs", () => {
 });
 
 // Copy the outdatedbrowser CSS
-gulp.task("copyOutdatedBrowserCss", () => {
+gulp.task("copy-outdated-browser-css", () => {
   return gulp
     .src(
       "bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.css"
@@ -105,35 +95,30 @@ gulp.task("copyOutdatedBrowserCss", () => {
 });
 
 // Compile all HTML (Dutch pages only)
-gulp.task("compileHtmlDutch", () => {
+gulp.task("compile-html-dutch", () => {
   return compileHtml("nl");
 });
 
 // Compile all HTML (English pages only)
-gulp.task("compileHtmlEnglish", () => {
+gulp.task("compile-html-english", () => {
   return compileHtml("en");
 });
 
 function compileHtml(locale) {
   const mergedData = Object.assign({}, data, localisedData[locale]);
-  return (
-    gulp
-      .src(`src/templates/pages/${locale}/**/*.+(html|nunjucks)`)
-      // .pipe(tap(function(file, t) {
-      //   util.log(file.dirname.toString())
-      // }))
-      .pipe(
-        nunjucksRender({
-          path: ["src/templates"],
-          data: {
-            data: mergedData
-          }
-        })
-      )
-      .pipe(prettify({ config: "./jsbeautifyrc.json" }))
-      .pipe(gulp.dest(`dist/${locale}`))
-      .pipe(connect.reload())
-  );
+  return gulp
+    .src(`src/templates/pages/${locale}/**/*.+(html|nunjucks)`)
+    .pipe(
+      nunjucksRender({
+        path: ["src/templates"],
+        data: {
+          data: mergedData
+        }
+      })
+    )
+    .pipe(prettify({ config: "./jsbeautifyrc.json" }))
+    .pipe(gulp.dest(`dist/${locale}`))
+    .pipe(connect.reload());
 }
 
 gulp.task("sitemap", () => {
@@ -150,7 +135,7 @@ gulp.task("sitemap", () => {
 });
 
 // Compile all CSS
-gulp.task("compileCss", () => {
+gulp.task("css", () => {
   return gulp
     .src("src/styles/**/*.scss")
     .pipe(
@@ -179,50 +164,71 @@ gulp.task("compileCss", () => {
 });
 
 // Lint app JS, warn about bad JS, break on errors
-gulp.task("lintJs", () => {
+// TODO: Add to Browserify?
+gulp.task("js-lint", () => {
   return gulp
     .src(["src/js/*.js"])
     .pipe(eslint())
     .pipe(eslint.format());
 });
 
-// Compile all JS
-gulp.task("compileProjectJs", () => {
+// TODO: Use environment variables inside of Browserify?
+gulp.task("js-process", function() {
   return gulp
     .src(["src/js/*.js"])
     .pipe(preprocess({ context: data }))
-    .pipe(babel())
-    .pipe(
-      data.environment !== "development"
-        ? uglify({ preserveComments: "license" })
-        : noop()
-    )
-    .pipe(rename({ extname: ".min.js" }))
-    .pipe(gulp.dest("dist/assets/js"));
+    .pipe(gulp.dest("./temp"));
 });
+
+// TODO: Find way to include ES6 requires and imports without browserify
+// TODO: Pipe Browserify instead of seperate task
+// https://wehavefaces.net/gulp-browserify-the-gulp-y-way-bb359b3f9623
+gulp.task("js-compile", function() {
+  return browserify("./temp/app.js")
+    .transform("babelify", { presets: ["es2015"] })
+    .transform("uglifyify", { global: true })
+    .bundle()
+    .pipe(source("app.min.js"))
+    .pipe(gulp.dest("./dist/assets/js"));
+});
+
+// Compile all JS
+// gulp.task("compileProjectJs", () => {
+//   return gulp
+//     .src(["src/js/*.js"])
+//     .pipe(preprocess({ context: data }))
+//     .pipe(babel())
+//     .pipe(
+//       data.environment !== "development"
+//         ? uglify({ preserveComments: "license" })
+//         : noop()
+//     )
+//     .pipe(rename({ extname: ".min.js" }))
+//     .pipe(gulp.dest("dist/assets/js"));
+// });
 
 // Add vendor files to minified project JS
-gulp.task("includeVendors", () => {
-  return gulp
-    .src([
-      "src/js/vendor/google-analytics.js",
-      "node_modules/js/vendor/google-analytics.js",
-      "dist/assets/js/scripts.min.js"
-    ])
-    .pipe(concat("scripts.min.js"), { newLine: "\n\n\n\n" })
-    .pipe(replace(/^\s*\r?\n/gm, ""))
-    .pipe(gulp.dest("dist/assets/js/"));
-});
+// gulp.task("includeVendors", () => {
+//   return gulp
+//     .src([
+//       "src/js/vendor/google-analytics.js",
+//       "node_modules/js/vendor/google-analytics.js",
+//       "dist/assets/js/scripts.min.js"
+//     ])
+//     .pipe(concat("scripts.min.js"), { newLine: "\n\n\n\n" })
+//     .pipe(replace(/^\s*\r?\n/gm, ""))
+//     .pipe(gulp.dest("dist/assets/js/"));
+// });
 
 // Live reload JS files in browser
-gulp.task("reloadJs", () => {
+gulp.task("js-reload", () => {
   return gulp.src(["dist/assets/js/**/*.js"]).pipe(connect.reload());
 });
 
 // Build all JS files
 gulp.task(
-  "compileJs",
-  gulp.series("lintJs", "compileProjectJs", "includeVendors", "reloadJs")
+  "js",
+  gulp.series("js-lint", "js-process", "js-compile", "js-reload")
 );
 
 // Watch all files and run tasks when files change
@@ -231,12 +237,12 @@ gulp.slurped = false; // step 1
 gulp.task("watch", () => {
   if (!gulp.slurped) {
     // step 2
-    gulp.watch(["src/public/**/*"], gulp.parallel("copyPublic"));
+    gulp.watch(["src/public/**/*"], gulp.parallel("copy-public"));
     gulp.watch(
       ["src/templates/**/*.+(html|nunjucks|json)"],
-      gulp.parallel(["compileHtmlDutch", "compileHtmlEnglish"])
+      gulp.parallel(["compile-html-dutch", "compile-html-english"])
     );
-    gulp.watch(["src/styles/**/*.scss"], gulp.series("compileCss"));
+    gulp.watch(["src/styles/**/*.scss"], gulp.series("css"));
     gulp.watch(["src/js/**/*.js"], gulp.series("js"));
     gulp.watch(
       [
@@ -286,19 +292,19 @@ gulp.task("report", () => {
 gulp.task(
   "build",
   gulp.series(
-    "deleteDist",
+    "delete-dist",
     gulp.parallel(
       gulp.series(
-        gulp.parallel("compileHtmlDutch", "compileHtmlEnglish"),
+        gulp.parallel("compile-html-dutch", "compile-html-english"),
         "sitemap"
       ),
-      "compileCss",
+      "css",
       "js",
-      "copyPublic",
-      "copyOutdatedBrowserJs",
-      "copyOutdatedBrowserCss"
+      "copy-public",
+      "copy-outdated-browser-js",
+      "copy-outdated-browser-css"
     ),
-    "report"
+    gulp.parallel("report", "delete-temp")
   )
 );
 
