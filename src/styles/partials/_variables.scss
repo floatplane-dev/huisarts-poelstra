@@ -1,12 +1,14 @@
-$font-stack: "Lusitana", Cambria, "Times New Roman", "Nimbus Roman No9 L",
-  "Freeserif", Times, serif;
-$sakkal-regular: "Sakkal-Majalla-Regular", sans-serif;
-$sakkal-bold: "Sakkal-Majalla-Bold", sans-serif;
+// Fonts
+$lusitana-regular: "Lusitana-Regular", serif;
+$lusitana-bold: "Lusitana-Bold", serif;
+$sakkal-regular: "Sakkal-Majalla-Regular", serif;
+
+// Colours
 $paragraph-grey: #615f57;
 $link-green: #8bbb2b;
 $link-hover: #b4e067;
-$warning-bg: #ff9b5b;
-$warning-text: #3e3e3e;
+$warning-bg: #b54d4d;
+$warning-text: white;
 
 // Easing
 $linear: cubic-bezier(0.25, 0.25, 0.75, 0.75);

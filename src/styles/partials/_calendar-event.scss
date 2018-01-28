@@ -34,28 +34,20 @@
   padding: 10px;
   > div {
     max-width: 960px;
-    background: rgba($warning-bg, 0.8);
+    border: 10px solid rgba(darken($warning-bg, 10%), 0.95);
     box-shadow: 0 3px 14px rgba(0, 0, 0, 0.2);
-    padding: 10px;
     margin: 0 auto;
     > div {
-      background: rgba($warning-bg, 0.9);
-      padding: 3vw;
-      padding-top: 0;
-      @media (max-width: 666px) {
-        padding: 20px;
-        padding-top: 0;
-      }
+      background: rgba($warning-bg, 0.98);
+      padding: 20px;
     }
   }
   h1 {
-    font-family: $sakkal-bold;
+    font-family: $lusitana-bold;
     color: $warning-text;
     line-height: 100%;
-    padding: 2vw 0;
-    @media (max-width: 1000px) {
-      padding: 20px 0;
-    }
+    padding: 0 0 20px;
+    font-size: 28px;
   }
   p {
     margin: 0;
@@ -71,11 +63,8 @@
     &:hover {
       background: rgba(white, 0.3);
     }
-    margin-top: 2vw;
+    margin-top: 20px;
     border: 1px solid rgba(white, 0.3);
-    @media (max-width: 1000px) {
-      margin-top: 20px;
-    }
   }
   &.outro {
     animation-name: outro;
