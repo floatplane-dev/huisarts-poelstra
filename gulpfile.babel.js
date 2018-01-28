@@ -193,6 +193,23 @@ gulp.task("js-compile", function() {
     .pipe(gulp.dest("./dist/assets/js"));
 });
 
+// gulp.task("js-compile", function() {
+//   return browserify("./src/js/app.js")
+//     .transform("envify")
+//     .transform("babelify", { presets: ["es2015"] })
+//     .transform("uglifyify", { global: true })
+//     .bundle()
+//     .pipe(source("app.min.js"))
+//     .pipe(gulp.dest("./dist/assets/js"));
+// });
+
+// gulp.task("js-compress", function() {
+//   return gulp
+//     .src("./dist/assets/js/app.min.js")
+//     .pipe(uglify())
+//     .pipe(gulp.dest("."));
+// });
+
 // Compile all JS
 // gulp.task("compileProjectJs", () => {
 //   return gulp
@@ -227,6 +244,16 @@ gulp.task("js-reload", () => {
 });
 
 // Build all JS files
+// gulp.task(
+//   "js",
+//   gulp.series(
+//     "js-lint",
+//     "js-preprocess",
+//     "js-compile",
+//     "js-reload",
+//     "delete-temp"
+//   )
+// );
 gulp.task(
   "js",
   gulp.series(

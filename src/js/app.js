@@ -1,3 +1,6 @@
+// TODO
+// import config from "../../config/environment.js";
+
 const addDays = require("date-fns/add_days");
 const addHours = require("date-fns/add_hours");
 const endOfDay = require("date-fns/end_of_day");
@@ -5,12 +8,16 @@ const format = require("date-fns/format");
 const isAfter = require("date-fns/is_after");
 const isBefore = require("date-fns/is_before");
 const startOfDay = require("date-fns/start_of_day");
-
 const googleAnalytics = require("./google-analytics");
+
+// TODO
+// console.log(process.env.NODE_ENV);
+// console.log("--", config.environment);
+// console.log("--", config.googleAnalyticsID);
 
 const environment = "/* @echo environment */";
 const googleAnalyticsID = "/* @echo googleAnalyticsID */";
-const language = location.pathname.startsWith("/nl") ? "nl" : "en";
+const language = location.pathname.indexOf("/nl") > -1 ? "nl" : "en";
 
 const utcOffset = 1; // Netherlands is GMT+1 (+2 in summer)
 const date = new Date(); // Now on this device
@@ -34,7 +41,7 @@ function init() {
 // Only continue if a the UA-ID was correctly embedded in this file (sometime fails)
 function sendPageViewToGA() {
   googleAnalytics;
-  if (ga && googleAnalyticsID.startsWith("UA")) {
+  if (ga && googleAnalyticsID.indexOf("UA") > -1) {
     ga("create", googleAnalyticsID, "auto");
     ga("set", { dimension1: environment });
     ga("send", "pageview");
@@ -72,6 +79,7 @@ function evaluateEvents(response) {
   });
 
   // Continue only if there is an event occuring right now (in the Netherlands)
+  console.log(eventsRightNow);
   if (eventsRightNow.length) {
     const firstEvent = eventsRightNow[0];
     const dismissed = JSON.parse(sessionStorage.getItem("dismissed")) || [];
