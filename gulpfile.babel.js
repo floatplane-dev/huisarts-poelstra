@@ -21,7 +21,6 @@ import uglify from "gulp-uglify";
 import util from "gulp-util";
 
 var browserify = require("browserify");
-var babelify = require("babelify");
 var source = require("vinyl-source-stream");
 
 gulp.task("js", function() {

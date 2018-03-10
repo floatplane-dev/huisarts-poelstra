@@ -34,12 +34,12 @@
   padding: 10px;
   > div {
     max-width: 960px;
-    background: rgba($warning-bg-organge, 0.8);
+    background: rgba($warning-bg, 0.8);
     box-shadow: 0 3px 14px rgba(0, 0, 0, 0.2);
     padding: 10px;
     margin: 0 auto;
     > div {
-      background: $warning-bg-organge;
+      background: rgba($warning-bg, 0.9);
       padding: 3vw;
       padding-top: 0;
       @media (max-width: 666px) {
@@ -50,7 +50,7 @@
   }
   h1 {
     font-family: $sakkal-bold;
-    color: $warning-text-brown;
+    color: $warning-text;
     line-height: 100%;
     padding: 2vw 0;
     @media (max-width: 1000px) {
@@ -59,7 +59,7 @@
   }
   p {
     margin: 0;
-    color: $warning-text-brown;
+    color: $warning-text;
     & + p {
       margin-top: 10px;
     }

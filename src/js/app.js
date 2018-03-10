@@ -10,6 +10,7 @@ const ga = require("./vendor/google-analytics");
 
 const environment = "/* @echo environment */";
 const googleAnalyticsID = "/* @echo googleAnalyticsID */";
+const language = location.pathname.startsWith("/nl") ? "nl" : "en";
 
 const utcOffset = 1; // Netherlands is GMT+1 (+2 in summer)
 const date = new Date(); // Now on this device
@@ -52,70 +53,75 @@ function checkForCalendarEvents() {
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       const response = JSON.parse(request.response);
-      const todayEvents = response.items.filter(item => {
-        const startTime = item.start.date
-          ? startOfDay(item.start.date)
-          : item.start.dateTime;
-        const endTime = item.end.date
-          ? endOfDay(item.end.date)
-          : item.end.dateTime;
-        const isToday = !isBefore(now, startTime) && !isAfter(now, endTime);
-        console.log(item.start.dateTime);
-        console.log(item.end.dateTime);
-        console.log(startTime);
-        console.log(endTime);
-        console.log(isToday);
-        return isToday;
-      });
-      if (todayEvents.length && !sessionStorage.getItem("dismissed")) {
-        const event = todayEvents[0];
-        let message = document.createElement("div");
-        message.setAttribute("id", "calendar-event");
-        const startDate = event.start.date
-          ? format(event.start.date, "DD/MM/YYYY")
-          : format(addHours(event.start.dateTime, 1), "DD/MM/YYYY, HH:mm");
-        const endDate = event.end.date
-          ? format(addDays(event.end.date, -1), "DD/MM/YYYY")
-          : format(addHours(event.end.dateTime, 1), "DD/MM/YYYY, HH:mm");
-        let dates =
-          startDate === endDate
-            ? `Gedurende ${startDate}`
-            : `Van: ${startDate}</br>Tot: ${endDate}`;
-        let description = event.description
-          .replace(/\n\n/g, "<p/><p>")
-          .replace(/\n/g, "<br />");
-        // prettier-ignore
-        message.innerHTML = `
-          <div>
-            <div>
-              <h1>${event.summary}</h1>
-              <p>${dates}</p>
-              <p>${description}</p>
-              <button>Begrepen, sluit venster</button>
-            </div>
-          </div>
-        `;
-        const closeButton = message.querySelector("button");
-        const close = () => {
-          message.classList.add("outro");
-          setTimeout(() => {
-            sessionStorage.setItem("dismissed", 1);
-            message.remove();
-          }, 500);
-        };
-        closeButton.addEventListener("click", close, false);
-        document.body.appendChild(message);
-      }
-      console.log(todayEvents);
+      evaluateEvents(response);
     }
   };
-  // TODO
-  // request.onerror = function() {
-  //   debugger;
-  // };
   request.send();
-  // TODO
-  // const dismissed = sessionStorage.getItem("dismissedCalendar");
+}
+
+function evaluateEvents(response) {
+  // Filter calendar events to those events that are occuring now
+  const eventsRightNow = response.items.filter(item => {
+    const startTime = item.start.date
+      ? startOfDay(item.start.date)
+      : item.start.dateTime;
+    const endTime = item.end.date ? endOfDay(item.end.date) : item.end.dateTime;
+    const isToday = !isBefore(now, startTime) && !isAfter(now, endTime);
+    return isToday;
+  });
+
+  // Continue only if there is an event occuring right now (in the Netherlands)
+  if (eventsRightNow.length) {
+    const firstEvent = eventsRightNow[0];
+    const dismissed = JSON.parse(sessionStorage.getItem("dismissed")) || [];
+    const wasDismissed = dismissed.some(event => event === firstEvent.id);
+    if (wasDismissed) {
+      return;
+    }
+    showCalendarMessage(firstEvent);
+  }
+}
+
+function showCalendarMessage(event) {
+  const element = document.createElement("div");
+  element.setAttribute("id", "calendar-event");
+  const startDate = event.start.date
+    ? format(event.start.date, "DD/MM/YYYY")
+    : format(addHours(event.start.dateTime, 1), "DD/MM/YYYY, HH:mm");
+  const endDate = event.end.date
+    ? format(addDays(event.end.date, -1), "DD/MM/YYYY")
+    : format(addHours(event.end.dateTime, 1), "DD/MM/YYYY, HH:mm");
+  const dates =
+    startDate === endDate
+      ? `Gedurende ${startDate}`
+      : `Van: ${startDate}</br>Tot: ${endDate}`;
+  const description = event.description
+    .replace(/\n\n/g, "<p/><p>")
+    .replace(/\n/g, "<br/>");
+  const buttonLabel =
+    language === "nl" ? "Begrepen, sluit venster" : "Understood, close message";
+  element.innerHTML = `
+    <div>
+      <div>
+        <h1>${event.summary}</h1>
+        <p>${dates}</p>
+        <p>${description}</p>
+        <button>${buttonLabel}</button>
+      </div>
+    </div>
+  `;
+  const closeButton = element.querySelector("button");
+  const close = () => {
+    element.classList.add("outro");
+    let dismissed = JSON.parse(sessionStorage.getItem("dismissed")) || [];
+    dismissed.push(event.id);
+    sessionStorage.setItem("dismissed", JSON.stringify(dismissed));
+    setTimeout(() => {
+      element.remove();
+    }, 500);
+  };
+  closeButton.addEventListener("click", close, false);
+  document.body.appendChild(element);
 }
 
 function bindMobileNavEvents() {
