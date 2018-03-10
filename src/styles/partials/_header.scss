@@ -1,7 +1,6 @@
 header {
   height: 220px;
   @media (max-width: 850px) {
-    // width: 240px;
     transition: transform 800ms $easeOutExpo;
   }
   .inner {

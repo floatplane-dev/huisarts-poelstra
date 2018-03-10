@@ -1,0 +1,87 @@
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes outro {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+#calendar-event {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  min-width: 320px;
+  box-sizing: border-box;
+  animation-name: fade;
+  animation-duration: 2000ms;
+  animation-timing-function: $easeOutExpo;
+  animation-fill-mode: forwards;
+  padding: 10px;
+  > div {
+    max-width: 960px;
+    background: rgba($warning-bg-organge, 0.8);
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 0 auto;
+    > div {
+      background: $warning-bg-organge;
+      padding: 3vw;
+      padding-top: 0;
+      @media (max-width: 666px) {
+        padding: 20px;
+        padding-top: 0;
+      }
+    }
+  }
+  h1 {
+    font-family: $sakkal-bold;
+    color: $warning-text-brown;
+    line-height: 100%;
+    padding: 2vw 0;
+    @media (max-width: 1000px) {
+      padding: 20px 0;
+    }
+  }
+  p {
+    margin: 0;
+    color: $warning-text-brown;
+    & + p {
+      margin-top: 10px;
+    }
+  }
+  button {
+    font-size: 17px;
+    line-height: 36px;
+    padding: 0 20px;
+    &:hover {
+      background: rgba(white, 0.3);
+    }
+    margin-top: 2vw;
+    border: 1px solid rgba(white, 0.3);
+    @media (max-width: 1000px) {
+      margin-top: 20px;
+    }
+  }
+  &.outro {
+    animation-name: outro;
+    animation-duration: 1400ms;
+    animation-timing-function: $easeOutExpo;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+  }
+}

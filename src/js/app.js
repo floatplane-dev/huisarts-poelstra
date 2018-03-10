@@ -1,18 +1,15 @@
+const addDays = require("date-fns/add_days");
+const addHours = require("date-fns/add_hours");
+const endOfDay = require("date-fns/end_of_day");
+const format = require("date-fns/format");
 const isAfter = require("date-fns/is_after");
 const isBefore = require("date-fns/is_before");
 const startOfDay = require("date-fns/start_of_day");
-const endOfDay = require("date-fns/end_of_day");
+
 const ga = require("./vendor/google-analytics");
 
 const environment = "/* @echo environment */";
 const googleAnalyticsID = "/* @echo googleAnalyticsID */";
-
-// Fire page view to Google Analytics
-if (ga && googleAnalyticsID.startsWith("UA")) {
-  ga("create", googleAnalyticsID, "auto");
-  ga("set", { dimension1: environment });
-  ga("send", "pageview");
-}
 
 const utcOffset = 1; // Netherlands is GMT+1 (+2 in summer)
 const date = new Date(); // Now on this device
@@ -25,11 +22,27 @@ let currentPhoto = 0;
 let showingNav = false;
 
 function init() {
-  bindMobileNavEvents();
+  sendPageViewToGA();
   checkForCalendarEvents();
+  bindMobileNavEvents();
   bindCarouselEvents();
 }
 
+// Fire page view to Google Analytics
+// Only fire if ga is present and not removed by privacy guarding browser plugins
+// Only continue if a the UA-ID was correctly embedded in this file (sometime fails)
+function sendPageViewToGA() {
+  if (ga && googleAnalyticsID.startsWith("UA")) {
+    ga("create", googleAnalyticsID, "auto");
+    ga("set", { dimension1: environment });
+    ga("send", "pageview");
+  }
+}
+
+// https://date-fns.org/
+// https://github.com/date-fns/date-fns/issues/556
+// https://www.techrepublic.com/article/convert-the-local-time-to-another-time-zone-with-this-javascript/
+// https://www.npmjs.com/package/time
 function checkForCalendarEvents() {
   var request = new XMLHttpRequest();
   request.open(
@@ -40,19 +53,69 @@ function checkForCalendarEvents() {
     if (request.status >= 200 && request.status < 400) {
       const response = JSON.parse(request.response);
       const todayEvents = response.items.filter(item => {
-        const isPast = isBefore(now, startOfDay(item.start.date));
-        const isFuture = isAfter(now, endOfDay(item.end.date));
-        console.log(item.start.date, item.end.date, isPast, isFuture);
-        return !isPast && !isFuture;
+        const startTime = item.start.date
+          ? startOfDay(item.start.date)
+          : item.start.dateTime;
+        const endTime = item.end.date
+          ? endOfDay(item.end.date)
+          : item.end.dateTime;
+        const isToday = !isBefore(now, startTime) && !isAfter(now, endTime);
+        console.log(item.start.dateTime);
+        console.log(item.end.dateTime);
+        console.log(startTime);
+        console.log(endTime);
+        console.log(isToday);
+        return isToday;
       });
+      if (todayEvents.length && !sessionStorage.getItem("dismissed")) {
+        const event = todayEvents[0];
+        let message = document.createElement("div");
+        message.setAttribute("id", "calendar-event");
+        const startDate = event.start.date
+          ? format(event.start.date, "DD/MM/YYYY")
+          : format(addHours(event.start.dateTime, 1), "DD/MM/YYYY, HH:mm");
+        const endDate = event.end.date
+          ? format(addDays(event.end.date, -1), "DD/MM/YYYY")
+          : format(addHours(event.end.dateTime, 1), "DD/MM/YYYY, HH:mm");
+        let dates =
+          startDate === endDate
+            ? `Gedurende ${startDate}`
+            : `Van: ${startDate}</br>Tot: ${endDate}`;
+        let description = event.description
+          .replace(/\n\n/g, "<p/><p>")
+          .replace(/\n/g, "<br />");
+        // prettier-ignore
+        message.innerHTML = `
+          <div>
+            <div>
+              <h1>${event.summary}</h1>
+              <p>${dates}</p>
+              <p>${description}</p>
+              <button>Begrepen, sluit venster</button>
+            </div>
+          </div>
+        `;
+        const closeButton = message.querySelector("button");
+        const close = () => {
+          message.classList.add("outro");
+          setTimeout(() => {
+            sessionStorage.setItem("dismissed", 1);
+            message.remove();
+          }, 500);
+        };
+        closeButton.addEventListener("click", close, false);
+        document.body.appendChild(message);
+      }
       console.log(todayEvents);
     }
   };
-  request.onerror = function() {
-    debugger;
-  };
+  // TODO
+  // request.onerror = function() {
+  //   debugger;
+  // };
   request.send();
-  const dismissed = sessionStorage.getItem("dismissedCalendar");
+  // TODO
+  // const dismissed = sessionStorage.getItem("dismissedCalendar");
 }
 
 function bindMobileNavEvents() {
@@ -155,6 +218,8 @@ function outroPhoto(i) {
   }, 900);
 }
 
+// Only init() once the DOM is ready for interaction.
+// A common mistake is to wait for "complete", but we don't need images and styles to be complete.
 const domIsInteractive = ["interactive", "complete"].includes(
   document.readyState
 );
