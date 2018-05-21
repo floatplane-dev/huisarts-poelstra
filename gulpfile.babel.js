@@ -38,6 +38,7 @@ const localisedData = {
       { label: "Medewerkers", url: "/nl/medewerkers/" },
       { label: "Interessante links", url: "/nl/interessante-links/" },
       { label: "Klachten", url: "/nl/klachten/" },
+      { label: "Privacy", url: "/nl/privacy/" },
       { label: "Contact", url: "/nl/contact/" }
     ]
   },
@@ -54,6 +55,7 @@ const localisedData = {
       { label: "Meet our team", url: "/en/our-team/" },
       { label: "Interesting links", url: "/en/interesting-links/" },
       { label: "Complaints", url: "/en/complaints/" },
+      { label: "Privacy", url: "/en/privacy/" },
       { label: "Contact", url: "/en/contact/" }
     ]
   }
