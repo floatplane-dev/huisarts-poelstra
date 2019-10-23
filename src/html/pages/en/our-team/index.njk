@@ -1,0 +1,44 @@
+{% extends "layouts/page.html.njk" %}
+{% block meta %}
+  <title>Team</title>
+  <meta name="description" content="Meet our team.">
+{% endblock %}
+{% block id %}medewerkers{% endblock %}
+{% block nederlands %}/medewerkers{% endblock %}
+{% block main %}
+
+  <div class="carousel next">
+    <div class="photos">
+      <img src="/assets/images/huisarts-frank-poelstra.jpg" alt="GP Frank Poelstra" class="active">
+      <img src="/assets/images/praktijk-manager-petra-poelstra-kranenburg.jpg" alt="Practice Manager Petra Poelstra Kranenburg">
+      <img src="/assets/images/huisarts-justine-veenhoven-van-ash-van-wijck.jpg" alt="GP Justine Veenhoven - Van Ash van Wijck">
+      {# <img src="/assets/images/physician-assistent-leonie-heeres.jpg" alt="Physician Assistent - Leonie Heeres"> #}
+      <img src="/assets/images/dokterassistente-gea-tissingh-hidding.jpg" alt="Staff for Chronic Diseas &amp; GP Assistent Gea Tissingh-Hidding">
+      <img src="/assets/images/praktijkondersteuner-tara-paalvast.jpg" alt="Staff for Menthal Health Tara Paalvast">
+      <img src="/assets/images/dokterassistente-suraja-sewdin.jpg" alt="GP Assistent Suraja Sewdin">
+      <img src="/assets/images/dokterassistente-zubeyde-kilic.jpg" alt="GP Assistent Zubeyde Kiliç">
+    </div>
+    <div class="buttons">
+      <button class="prev">Previous</button>
+      <button class="next">Next</button>
+    </div>
+  </div>
+  <h1>
+    <span>Meet our team</span>
+  </h1>
+  <h2>Staff for Chronic Diseases</h2>
+  <p>Our Staff for Chronic Diseases looks after patients with chronic diseases. We have decicated consultation times for Diabetes Mellitus, Astma Copd, Hypertension and heart failures. They are trained and experienced in these fields and have more time available than our GP for all your questions.</p>
+  <h2>Staff for Menthal Health</h2>
+  <p>Our Staff for Menthal Health looks after the mental health of patients. She is trained and expereinced in the field of psychological and emotional complaints.</p>
+  <h2>GP Assistent</h2>
+  <p>Our doctors assistents are your first line of help when it comes to practical and relatively easy medical questions. From Monday to Friday between 8:00 AM and 10:00 AM and between 1:30 PM and 3:00 PM you can ask her questions about for example:</p>
+  <ul>
+    <li>Urine tests</li>
+    <li>Pregnancy tests (costs 10 Euro)</li>
+    <li>Vaccinations</li>
+    <li>Removal of stitches</li>
+    <li>Cleaning of the ears</li>
+    <li>Pap smears</li>
+  </ul>
+
+{% endblock %}

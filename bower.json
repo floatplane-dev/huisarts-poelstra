@@ -1,7 +1,6 @@
 {
   "name": "huisarts-poelstra",
   "devDependencies": {
-    "outdated-browser": "^1.1.3",
     "flag-icon-css": "^2.8.0"
   }
 }

@@ -1,0 +1,106 @@
+// All headings, paragraphs and buttons will inherit these font styles from the <body>
+body {
+  font-family: $rubik-regular; // Important, we explicitly name fonts, no weights used
+  font-style: normal; // Important, we use weightless fonts
+  font-weight: normal; // Important, we use weightless fonts
+  font-size: 16px;
+  line-height: 130%;
+  margin: 0;
+  color: $almost-black;
+  -webkit-font-smoothing: antialiased; // Without it, fonts will look bloated Chrome and Safari
+  -moz-osx-font-smoothing: grayscale; // Without it, fonts will look bloated Firefox
+
+  width: 100%;
+  height: 100%;
+}
+
+// The general layout of the page
+footer,
+header,
+section {
+  min-width: 320px;
+  overflow: hidden; // To avoid content from pushing of screen or into other sections
+  > div.liner {
+    min-width: 320px; // The smallest screen width we support
+    max-width: 1200px; // The largest screen width we support
+    box-sizing: border-box;
+    margin: 0 auto;
+    @include widescreen {
+      padding: 0 60px;
+    }
+    @include desktop {
+      padding: 0 vw(60, 1200);
+    }
+    @include tablet {
+      padding: 0 6vw;
+    }
+    @include mobile {
+      padding: 0 6vw;
+    }
+  }
+}
+
+// To avoid <img> and <iframe> to have weird white space below them, make them a block
+iframe,
+img {
+  display: block;
+}
+
+blockquote {
+  margin: 0;
+}
+
+// In most cases we use <ul> not as bullet lists and thus we strip them of all browser defaults
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 0;
+  }
+}
+
+// Mobile first designs no longer underline links
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+strong {
+  font-weight: normal; // We use font-families instead of weights
+}
+
+// Button border insets are never desired, yet browser default...
+button {
+  &:active {
+    border-style: solid;
+  }
+}
+
+// Semantically <table> is sometimes the best way to describe content.
+// When you do, always reset the display rules because they are unpredictable.
+// display: table;
+// display: table-row;
+// display: table-cell;
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  display: block;
+}
+th {
+  font-weight: normal; // We use font-families instead of weights
+}
+
+// For the outdated browser message
+// https://bestvpn.org/outdatedbrowser/en
+#outdated {
+  p {
+    max-width: none;
+  }
+}

@@ -1,72 +1,50 @@
 {
   "name": "huisarts-poelstra",
   "version": "1.0.0",
-  "homepage": "http://huisartspoelstra.nl",
+  "homepage": "https://huisartspoelstra.nl",
   "description": "The website of a GP in Rotterdam, Netherlands",
-  "author": "Jan Werkhoven",
+  "repository": "git@github.com:janwerkhoven/huisartspoelstra.nl.git",
+  "bugs": "https://github.com/janwerkhoven/huisartspoelstra.nl/issues",
+  "contributors": [
+    "Jan Werkhoven <jw@poncho.floatplane.dev> (https://github.com/janwerkhoven)"
+  ],
   "license": "UNLICENSED",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:janwerkhoven/huisartspoelstra.nl.git"
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "date-fns": "^1.29.0",
+    "del": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-dart-sass": "^0.9.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-jsbeautifier": "^3.0.1",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-rename": "^1.4.0",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "husky": "^3.0.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack-stream": "^5.2.1"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
   },
   "scripts": {
-    "prettier-all": "prettier --write \"**/*.{css,scss,js,json,md}\"",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{css,scss,js,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ]
-    ]
-  },
-  "bugs": {
-    "url": "https://github.com/janwerkhoven/huisartspoelstra.nl/issues"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-plugin-array-includes": "^2.0.3",
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^8.0.0",
-    "browserify": "^15.2.0",
-    "date-fns": "^1.29.0",
-    "del": "^3.0.0",
-    "envify": "^4.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.5.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^4.1.0",
-    "gulp-clean-css": "^3.9.2",
-    "gulp-connect": "^5.2.0",
-    "gulp-eslint": "^4.0.2",
-    "gulp-jsbeautifier": "^2.1.2",
-    "gulp-nunjucks-render": "^2.2.2",
-    "gulp-preprocess": "^2.0.0",
-    "gulp-prettify": "^0.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-sitemap": "^5.0.0",
-    "gulp-size": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "husky": "^0.14.3",
-    "lint-staged": "^6.1.0",
-    "node-normalize-scss": "^3.0.0",
-    "node-sass": "^4.11.0",
-    "prettier": "^1.14.2",
-    "uglifyify": "^4.0.5",
-    "vinyl-source-stream": "^2.0.0"
-  },
-  "optionalDependencies": {},
-  "dependencies": {}
+    "start": "./node_modules/.bin/gulp serve",
+    "build": "./node_modules/.bin/gulp build",
+    "deploy": "git push remote; ./deploy.sh",
+    "bump-patch": "npm version patch; git push origin --tags; git push",
+    "bump-minor": "npm version minor; git push origin --tags; git push",
+    "bump-major": "npm version major; git push origin --tags; git push",
+    "prettier-all": "prettier --write \"**/*.{css,scss,js,json,md}\""
+  }
 }

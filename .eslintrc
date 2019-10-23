@@ -1,9 +1,5 @@
 {
-  "parserOptions": {
-    "sourceType": "module"
-  },
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
+  "extends": "eslint:recommended",
   "env": {
     "browser": true,
     "node": true,
@@ -13,10 +9,15 @@
     "ga": true
   },
   "rules": {
-    "prettier/prettier": "error",
-    "no-debugger": 1,
-    "no-console": 0,
-    "no-unused-vars": 1,
-    "no-undef": 1
+    "no-debugger": "warn",
+    "no-console": "warn",
+    "no-unused-vars": "warn"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }
