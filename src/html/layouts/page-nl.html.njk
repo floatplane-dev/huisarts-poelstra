@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
-<html lang="{{ data.languageCode }}">
+<html lang="nl-NL">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="developer" content="Jan Werkhoven">
-    <meta name="environment" content="{{data.environment}}">
+    <meta name="environment" content="{{environment}}">
+    <meta name="revision" content="{{revision}}">
     <meta name="robots" content="index, follow">
     {% block meta %}{% endblock %}
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css">
@@ -15,7 +16,7 @@
   <body id="{% block id %}{% endblock %}">
     <header>
       <div class="inner">
-        <a href="/{{data.locale}}/" id="logo">
+        <a href="/nl/" id="logo">
           <img src="/assets/images/huisarts-poelstra-logo.png" alt="Logo van Huisartspraktijk Poelstra" width="234" height="143">
         </a>
         <button>Menu</button>
@@ -28,17 +29,41 @@
           <div class="bg-fade"></div>
           <div class="inner">
             <ul>
-              {% for link in data.links %}
-                <li>
-                  <a href="{{link.url}}">{{link.label}}</a>
-                </li>
-              {% endfor %}
+              <li>
+                <a href="/nl">Welkom</a>
+              </li>
+              <li>
+                <a href="/nl/spreekuren">Spreekuren</a>
+              </li>
+              <li>
+                <a href="/nl/spoedgeval">Spoedgeval</a>
+              </li>
+              <li>
+                <a href="/nl/inschrijving">Inschrijving</a>
+              </li>
+              <li>
+                <a href="/nl/herhaalrecepten">Herhaalrecepten</a>
+              </li>
+              <li>
+                <a href="/nl/sluitingsdagen">Sluitingsdagen</a>
+              </li>
+              <li>
+                <a href="/nl/medewerkers">Medewerkers</a>
+              </li>
+              <li>
+                <a href="/nl/interessante-links">Interessante links</a>
+              </li>
+              <li>
+                <a href="/nl/klachten">Klachten</a>
+              </li>
+              <li>
+                <a href="/nl/privacy">Privacy</a>
+              </li>
+              <li>
+                <a href="/nl/contact">Contact</a>
+              </li>
             </ul>
-            {% if data.locale == 'nl' %}
-              <a href="/en{% block english %}{% endblock %}" class="language en">English</a>
-            {% else %}
-              <a href="/nl{% block nederlands %}{% endblock %}" class="language nl">Nederlands</a>
-            {% endif %}
+            <a href="/en{% block english %}{% endblock %}" class="language en">English</a>
           </div>
         </nav>
         <article>
