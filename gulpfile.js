@@ -1,3 +1,10 @@
+// Environment variables
+// https://www.npmjs.com/package/dotenv-flow
+require("dotenv-flow").config();
+const { NODE_ENV, GA } = process.env;
+// const isProduction = NODE_ENV === "production";
+// const isDevelopment = NODE_ENV === "development";
+
 // Extract methods from Gulp
 // https://gulpjs.com/docs/en/api/src
 const { src, dest, series, parallel, watch } = require("gulp");
@@ -15,50 +22,6 @@ const sass = require("gulp-dart-sass");
 const size = require("gulp-size");
 const webpack = require("webpack-stream");
 
-const data = {
-  projectName: "Huisarts Poelstra",
-  environment: "development",
-  googleAnalyticsID: "UA-26179509-4",
-  sitemapRootUrl: "https://www.huisartspoelstra.nl"
-};
-
-const localisedData = {
-  nl: {
-    locale: "nl",
-    languageCode: "nl-NL",
-    links: [
-      { label: "Welkom", url: "/nl/" },
-      { label: "Spreekuren", url: "/nl/spreekuren/" },
-      { label: "Spoedgeval", url: "/nl/spoedgeval/" },
-      { label: "Inschrijving", url: "/nl/inschrijving/" },
-      { label: "Herhaalrecepten", url: "/nl/herhaalrecepten/" },
-      { label: "Sluitingsdagen", url: "/nl/sluitingsdagen/" },
-      { label: "Medewerkers", url: "/nl/medewerkers/" },
-      { label: "Interessante links", url: "/nl/interessante-links/" },
-      { label: "Klachten", url: "/nl/klachten/" },
-      { label: "Privacy", url: "/nl/privacy/" },
-      { label: "Contact", url: "/nl/contact/" }
-    ]
-  },
-  en: {
-    locale: "en",
-    languageCode: "en-NL",
-    links: [
-      { label: "Welcome", url: "/en/" },
-      { label: "Consultations", url: "/en/consultations/" },
-      { label: "Emergencies", url: "/en/emergencies/" },
-      { label: "New patients", url: "/en/new-patients/" },
-      { label: "Repeat prescriptions", url: "/en/repeat-prescriptions/" },
-      { label: "Closing days", url: "/en/closing-days/" },
-      { label: "Meet our team", url: "/en/our-team/" },
-      { label: "Interesting links", url: "/en/interesting-links/" },
-      { label: "Complaints", url: "/en/complaints/" },
-      { label: "Privacy", url: "/en/privacy/" },
-      { label: "Contact", url: "/en/contact/" }
-    ]
-  }
-};
-
 // Removes the dist folder
 function clean() {
   return del(["dist"]);
@@ -70,15 +33,14 @@ function assets() {
 }
 
 // Compiles all the HTML
-function nunjucks(locale) {
-  const mergedData = Object.assign({}, data, localisedData[locale]);
-
-  return src(`src/html/pages/${locale}/**/*.+(html|njk)`)
+function html() {
+  return src("src/html/pages/**/*.+(html|njk)")
     .pipe(
       nunjucksRender({
         path: ["src/html"],
         data: {
-          data: mergedData
+          environment: NODE_ENV,
+          revision: "xxx"
         }
       })
     )
@@ -91,7 +53,7 @@ function nunjucks(locale) {
         }
       })
     )
-    .pipe(dest(`dist/${locale}`));
+    .pipe(dest("dist"));
 }
 
 // Compiles all the CSS
@@ -171,19 +133,10 @@ function watchers() {
   watch("src/js/**/*.js", js);
 }
 
-function dutch() {
-  return nunjucks("nl");
-}
-
-function english() {
-  return nunjucks("en");
-}
-
 // Create Gulp commands
 // https://gulpjs.com/docs/en/getting-started/creating-tasks
 const js = series(lintJs, buildJs);
-const html = series(dutch, english);
-const build = series(clean, parallel(assets, dutch, css, js), report);
+const build = series(clean, parallel(assets, html, css, js), report);
 const serve = series(build, parallel(localhost, watchers));
 
 // Finally make those tasks available in Gulp CLI
