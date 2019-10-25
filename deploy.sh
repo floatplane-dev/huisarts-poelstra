@@ -3,16 +3,18 @@
 set -e
 set -o pipefail
 
-branch=$(git rev-parse --abbrev-ref HEAD)
-revision=$(git rev-parse --short HEAD)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REVISION=$(git rev-parse --short HEAD)
+PROJECT=$(basename $(git remote get-url origin) | rev | cut -c5- | rev)
 
 echo "----------"
 echo "Deploying:"
-echo $branch
-echo $revision
+echo $BRANCH
+echo $REVISION
+echo $PROJECT
 echo "----------"
-echo "scp install.sh deploy@huisartspoelstra.nl:/var/www/huisartspoelstra.nl"
-scp install.sh deploy@poncho.floatplane.dev:/var/www/huisartspoelstra.nl
+echo "scp install.sh deploy@$PROJECT:/var/www/$PROJECT"
+scp install.sh deploy@$PROJECT:/var/www/$PROJECT
 echo "----------"
-echo 'ssh deploy@huisartspoelstra.nl "/var/www/huisartspoelstra.nl/install.sh $branch $revision"'
-ssh deploy@poncho.floatplane.dev "/var/www/huisartspoelstra.nl/install.sh $branch $revision"
+echo 'ssh deploy@$PROJECT "/var/www/$PROJECT/install.sh $branch $revision $PROJECT"'
+ssh deploy@$PROJECT "/var/www/$PROJECT/install.sh $branch $revision $PROJECT"

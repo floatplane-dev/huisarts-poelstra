@@ -10,6 +10,7 @@ export NVM_DIR="$HOME/.nvm"
 
 BRANCH=$1
 REVISION=$2
+PROJECT=$3
 
 echo "----------"
 echo "User: $USER"
@@ -17,9 +18,10 @@ echo "Host: $HOSTNAME"
 echo "Path: $PWD"
 echo "Branch: $BRANCH"
 echo "Revision: $REVISION"
+echo "Project: $PROJECT"
 echo "----------"
-echo "cd /var/www/huisartspoelstra.nl"
-cd /var/www/huisartspoelstra.nl
+echo "cd /var/www/$PROJECT"
+cd /var/www/$PROJECT
 echo "----------"
 echo "git checkout $BRANCH -f"
 git checkout $BRANCH -f
