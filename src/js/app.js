@@ -1,33 +1,18 @@
-// TODO
-// import config from "../../config/environment.js";
+// Environment variables
+const NODE_ENV = process.env.NODE_ENV;
+const GA = process.env.GA;
 
-// import {
-//   add_days,
-//   add_hours,
-//   end_of_day,
-//   format,
-//   is_after,
-//   is_before,
-//   start_of_day
-// } from "date-fns";
+import googleAnalytics from "./vendor/google-analytics";
+import {
+  addDays,
+  addHours,
+  endOfDay,
+  format,
+  isAfter,
+  isBefore,
+  startOfDay
+} from "date-fns";
 
-const addDays = require("date-fns/add_days");
-const addHours = require("date-fns/add_hours");
-const endOfDay = require("date-fns/end_of_day");
-const format = require("date-fns/format");
-const isAfter = require("date-fns/is_after");
-const isBefore = require("date-fns/is_before");
-const startOfDay = require("date-fns/start_of_day");
-
-const googleAnalytics = require("./google-analytics");
-
-// TODO
-// console.log(process.env.NODE_ENV);
-// console.log("--", config.environment);
-// console.log("--", config.googleAnalyticsID);
-
-const environment = "/* @echo environment */";
-const googleAnalyticsID = "/* @echo googleAnalyticsID */";
 const language = location.pathname.indexOf("/nl") > -1 ? "nl" : "en";
 
 const utcOffset = 1; // Netherlands is GMT+1 (+2 in summer)
@@ -52,9 +37,9 @@ function init() {
 // Only continue if a the UA-ID was correctly embedded in this file (sometime fails)
 function sendPageViewToGA() {
   googleAnalytics;
-  if (ga && googleAnalyticsID.indexOf("UA") > -1) {
-    ga("create", googleAnalyticsID, "auto");
-    ga("set", { dimension1: environment });
+  if (ga && GA) {
+    ga("create", GA, "auto");
+    ga("set", { dimension1: NODE_ENV });
     ga("send", "pageview");
   }
 }
@@ -90,7 +75,6 @@ function evaluateEvents(response) {
   });
 
   // Continue only if there is an event occuring right now (in the Netherlands)
-  console.log(eventsRightNow);
   if (eventsRightNow.length) {
     const firstEvent = eventsRightNow[0];
     const dismissed = JSON.parse(sessionStorage.getItem("dismissed")) || [];

@@ -1,9 +1,9 @@
 // Environment variables
-// https://www.npmjs.com/package/dotenv-flow
 require("dotenv-flow").config();
-const { NODE_ENV, GA } = process.env;
-// const isProduction = NODE_ENV === "production";
-// const isDevelopment = NODE_ENV === "development";
+const { NODE_ENV } = process.env;
+const isProduction = NODE_ENV === "production";
+const isDevelopment = NODE_ENV === "development";
+const gitRevision = require("git-revision");
 
 // Extract methods from Gulp
 // https://gulpjs.com/docs/en/api/src
@@ -21,6 +21,7 @@ const rename = require("gulp-rename");
 const sass = require("gulp-dart-sass");
 const size = require("gulp-size");
 const webpack = require("webpack-stream");
+const Dotenv = require("dotenv-webpack");
 
 // Removes the dist folder
 function clean() {
@@ -40,7 +41,9 @@ function html() {
         path: ["src/html"],
         data: {
           environment: NODE_ENV,
-          revision: "xxx"
+          revision: gitRevision("short"),
+          isProduction,
+          isDevelopment
         }
       })
     )
@@ -87,6 +90,12 @@ function buildJs() {
   return src("src/js/app.js")
     .pipe(
       webpack({
+        mode: NODE_ENV,
+        plugins: [
+          new Dotenv({
+            path: `.env.${NODE_ENV}`
+          })
+        ],
         module: {
           rules: [
             {

@@ -19,6 +19,8 @@
     "date-fns": "^1.29.0",
     "del": "^5.0.0",
     "dotenv-flow": "^3.1.0",
+    "dotenv-webpack": "^1.7.0",
+    "git-revision": "^0.0.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
