@@ -100,8 +100,8 @@ function showCalendarMessage(event) {
       ? `Gedurende ${startDate}`
       : `Van: ${startDate}</br>Tot: ${endDate}`;
   const description = event.description
-    .replace(/\n\n/g, "<p/><p>")
-    .replace(/\n/g, "<br/>");
+    ? event.description.replace(/\n\n/g, "<p/><p>").replace(/\n/g, "<br/>")
+    : "";
   const buttonLabel =
     language === "nl" ? "Begrepen, sluit venster" : "Understood, close message";
   element.innerHTML = `

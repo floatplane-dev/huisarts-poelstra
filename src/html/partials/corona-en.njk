@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  function closeMessage(element) {
+    var parent = element.parentElement.parentElement.parentElement;
+    parent.classList.add("outro");
+    setTimeout(() => {
+      element.remove();
+    }, 500);
+    sessionStorage.setItem("showCoronaWarning", "no");
+  }
+</script>
+
+<div id="calendar-event" class="corona">
+  <div>
+    <div>
+      <h1>Corona Virus</h1>
+      <p>If you are having a fever, coughing or having a hard time breathing, then please call our practice before visiting.</p>
+      <p>Tel 010-452033.</p>
+      <button onclick="closeMessage(this)">Understood</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  const show = sessionStorage.getItem("showCoronaWarning");
+  if (show === "no") {
+    document.querySelector("#calendar-event.corona").remove();
+  }
+</script>
