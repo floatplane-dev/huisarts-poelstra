@@ -8,35 +8,24 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-BRANCH=$1
-REVISION=$2
-PROJECT=$3
+echo "----------"
+echo "Installing..."
+echo "----------"
+
+(set -x; git pull)
 
 echo "----------"
-echo "User: $USER"
-echo "Host: $HOSTNAME"
-echo "Path: $PWD"
-echo "Branch: $BRANCH"
-echo "Revision: $REVISION"
-echo "Project: $PROJECT"
+
+(set -x; nvm install)
+
 echo "----------"
-echo "cd /var/www/$PROJECT"
-cd /var/www/$PROJECT
+
+(set -x; yarn install)
+
 echo "----------"
-echo "git checkout $BRANCH -f"
-git checkout $BRANCH -f
-echo "----------"
-echo "git pull"
-git pull
-echo "----------"
-echo "nvm install"
-nvm install
-echo "----------"
-echo "yarn install"
-yarn install
-echo "----------"
-echo "yarn build"
-gulp build
+
+(set -x; yarn build)
+
 echo "----------"
 echo "Deploy successful!"
 echo "----------"
