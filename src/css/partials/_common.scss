@@ -234,6 +234,8 @@ main {
             text-align: left;
             text-decoration: none;
             border-bottom: 1px dotted #cdcdcd;
+            display: flex;
+            align-items: center;
             @media (max-width: 1080px) {
               width: 17.59259vw;
               // padding: 0 0.9259259vw;
@@ -246,6 +248,19 @@ main {
               text-shadow: 1px 1px 10px rgba(black, 0.4);
               background: url("/assets/images/bg-navigatie.jpg") no-repeat left
                 top;
+              svg {
+                [fill] {
+                  fill: white;
+                }
+              }
+            }
+            svg {
+              width: 12px;
+              height: auto;
+              margin-left: 10px;
+              [fill] {
+                fill: $paragraph-grey;
+              }
             }
           }
         }
