@@ -19,4 +19,4 @@ echo "----------"
 
 echo "----------"
 
-(set -x; ssh $user@$host "/var/www/$host/install.sh $branch $revision")
+(set -x; ssh $user@$host "/var/www/$host/; ./install.sh")
