@@ -9,7 +9,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 echo "----------"
-echo "Remote: installing..."
+echo "Installing..."
 echo "----------"
 (set -x; cd ..)
 echo "----------"
@@ -21,5 +21,5 @@ echo "----------"
 echo "----------"
 (set -x; yarn build)
 echo "----------"
-echo "Remote: installation done"
+echo "Installation done!"
 echo "----------"

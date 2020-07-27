@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 174 40">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-UZO_patientomgeving_button_4.1);
+      }
+
+      .cls-2, .cls-3 {
+        fill: #497084;
+      }
+
+      .cls-2, .cls-5 {
+        font-size: 14px;
+        font-family: UbuntuTitling-Bold, Ubuntu Titling;
+        font-weight: 700;
+      }
+
+      .cls-3, .cls-6 {
+        font-size: 20px;
+        font-family: FontAwesome5ProLight, "Font Awesome 5 Pro";
+      }
+
+      .cls-4 {
+        fill: #4a4a4a;
+      }
+
+      .cls-5, .cls-6 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-UZO_patientomgeving_button_4.1">
+      <rect width="174" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="UZO_patientomgeving_button_4.1" data-name="UZO patientomgeving button 4.1" class="cls-1">
+    <g id="Group_38" data-name="Group 38" transform="translate(-1168 -983)">
+      <g id="Group_32" data-name="Group 32" transform="translate(1123)">
+        <text id="Patiëntenomgeving" class="cls-2" transform="translate(82 1009)"><tspan x="0" y="0">Patiëntenomgeving</tspan></text>
+        <text id="_" data-name="" class="cls-3" transform="translate(56 993)"><tspan x="0" y="18"></tspan></text>
+      </g>
+    </g>
+    <g id="Group_39" data-name="Group 39" transform="translate(-1168 -983)">
+      <rect id="Rectangle_257" data-name="Rectangle 257" class="cls-4" width="174" height="40" rx="5" transform="translate(1168 983)"/>
+      <g id="Group_32-2" data-name="Group 32" transform="translate(1123)">
+        <text id="Patiëntenomgeving-2" data-name="Patiëntenomgeving" class="cls-5" transform="translate(82 1009)"><tspan x="0" y="0">Patiëntenomgeving</tspan></text>
+        <text id="_2" data-name="" class="cls-6" transform="translate(56 993)"><tspan x="0" y="18"></tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
