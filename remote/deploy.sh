@@ -7,7 +7,7 @@ user="jw"
 host="huisartspoelstra.nl"
 
 echo "----------"
-echo "Local: Deploying..."
+echo "Deploying..."
 echo "----------"
 (set -x; git checkout production -f)
 (set -x; git pull origin master)
@@ -17,5 +17,5 @@ echo "----------"
 echo "----------"
 (set -x; git checkout master)
 echo "----------"
-echo "Local: Done!"
+echo "Deploy done!"
 echo "----------"
