@@ -6,8 +6,6 @@ This is the website of a GP in Rotterdam, Netherlands.
 
 [www.huisartspoelstra.nl](https://huisartspoelstra.nl)
 
----
-
 #### Highlights
 
 * Built with [Gulp](https://gulpjs.com), [Nunchucks](https://mozilla.github.io/nunjucks/), [SASS](https://sass-lang.com) and vanilla JS. 👾
