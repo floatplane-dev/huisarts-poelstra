@@ -6,56 +6,43 @@ The [website](http://huisartspoelstra.nl) of a GP in Rotterdam, Netherlands.
 
 #### Highlights
 
-* Built with Gulp 4, Nunchucks (HTML), SASS (CSS), jQuery (JS), Atom & Git
-* Mobile responsive & retina-ready
-* Served on SSD Ubuntu Nginx servers
-* Originally built in 2011 in Joomla :facepalm:
-* Revamped with Gulp 4 May 2017
+* Built with [Gulp](https://gulpjs.com), [Nunchucks](https://mozilla.github.io/nunjucks/), [SASS](https://sass-lang.com) and vanilla JS. 👾
+* Mobile & tablet friendly. ☺️
+* Served lightning fast by Nginx on SSD Debian server. ⚡
+* Originally built in 2011 in PHP CMS Joomla. 🙄
+* Revamped with Gulp May 2017. 🍹
+* Maintained by [team Floatplane](https://floatplane.dev). 🚤
+* Code & design by [Jan Werkhoven](https://github.com/janwerkhoven). 🤸🏻‍♂️
 
-### Setup
+---
 
-First make sure you have [NPM](https://nodejs.org/en/download/), [Yarn](https://yarnpkg.com/en/), [Bower](https://bower.io/) and [Gulp](http://gulpjs.com/):
+#### Setup
 
-```
-brew update
-brew install yarn;
-npm install -g bower;
-npm install --g gulp-cli;
-npm rebuild node-sass;
-```
+First make sure you have [NVM](https://github.com/nvm-sh/nvm) and [PNPM](https://pnpm.io).
 
-Then clone, install, build, watch and serve the project:
-
-```
-repo=janwerkhoven/huisartspoelstra.nl
-git clone git@github.com:$REPO.git ~/$REPO;
-cd ~/$REPO;
-bower install;
-yarn install;
-atom .;
-gulp
+```sh
+nvm install
+pnpm install
+pnpm serve
 ```
 
-Open [http://localhost:9000/](http://localhost:9000/)
+Open [http://localhost:9000/](http://localhost:9000/) and happy coding!
 
-### Gulp commands
+For production ready builds:
 
-```
-gulp
-gulp serve
+```sh
 gulp build
 gulp build --env staging
 gulp build --env production
 ```
 
-Each sub task in Gulp can be run individually as well: `gulp someTask`. Look in the `gulpfile.babel.js` for all available tasks.
+---
 
 #### Contact
 
-Get in touch on [LinkedIn](https://au.linkedin.com/pub/jan-werkhoven/10/64/b30), [GitHub](https://github.com/janwerkhoven) or <a href="mailto:jw@nabu.io" target="_blank">jw@nabu.io</a>.
+For any queries, shoot us a message:
 
----
-
-**Jan Werkhoven**  
-Web Developer  
-& UI Designer
+[hello@floatplane.dev](mailto:hello@floatplane.dev)  
+[www.floatplane.dev](floatplane.dev)  
+[GitHub](https://github.com/janwerkhoven)  
+[LinkedIn](https://au.linkedin.com/pub/jan-werkhoven/10/64/b30)
