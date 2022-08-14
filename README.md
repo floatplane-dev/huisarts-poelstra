@@ -2,7 +2,11 @@
 
 #### What
 
-The [website](http://huisartspoelstra.nl) of a GP in Rotterdam, Netherlands.
+This is the website of a GP in Rotterdam, Netherlands.
+
+[www.huisartspoelstra.nl](https://huisartspoelstra.nl)
+
+---
 
 #### Highlights
 
@@ -16,7 +20,7 @@ The [website](http://huisartspoelstra.nl) of a GP in Rotterdam, Netherlands.
 
 ---
 
-#### Setup
+#### For developers
 
 First make sure you have [NVM](https://github.com/nvm-sh/nvm) and [PNPM](https://pnpm.io).
 
@@ -28,19 +32,18 @@ pnpm serve
 
 Open [http://localhost:9000/](http://localhost:9000/) and happy coding!
 
-For production ready builds:
+For deployment to production:
 
-```sh
-gulp build
-gulp build --env staging
-gulp build --env production
-```
+1. PR to branch `production`.
+2. Pass code review.
+3. Merge.
+4. Deployment happens automatically. 🚀
 
 ---
 
-#### Contact
+#### Ask us!
 
-For any queries, shoot us a message:
+For any queries, contact team Floatplane:
 
 [hello@floatplane.dev](mailto:hello@floatplane.dev)  
 [www.floatplane.dev](floatplane.dev)  
