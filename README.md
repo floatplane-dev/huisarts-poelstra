@@ -39,9 +39,9 @@ For deployment to production:
 
 ---
 
-#### Ask us!
+#### Questions?
 
-For any queries, contact team Floatplane:
+Ask team Floatplane!
 
 [hello@floatplane.dev](mailto:hello@floatplane.dev)  
 [www.floatplane.dev](floatplane.dev)  
