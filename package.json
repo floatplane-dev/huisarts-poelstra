@@ -2,11 +2,11 @@
   "name": "huisarts-poelstra",
   "version": "1.0.0",
   "homepage": "https://huisartspoelstra.nl",
-  "description": "The website of a GP in Rotterdam, Netherlands",
-  "repository": "git@github.com:janwerkhoven/huisartspoelstra.nl.git",
-  "bugs": "https://github.com/janwerkhoven/huisartspoelstra.nl/issues",
+  "description": "This is the website the GP Frank Poelstra in Rotterdam, Netherlands",
+  "repository": "git@github.com:floatplane-dev/huisartspoelstra.nl.git",
+  "bugs": "https://github.com/floatplane-dev/huisartspoelstra.nl/issues",
   "contributors": [
-    "Jan Werkhoven <jw@poncho.floatplane.dev> (https://github.com/janwerkhoven)"
+    "Jan Werkhoven <jw@floatplane.dev> (https://github.com/janwerkhoven)"
   ],
   "license": "UNLICENSED",
   "private": true,
@@ -37,16 +37,8 @@
     "react-dom": "^16.9.0",
     "webpack-stream": "^5.2.1"
   },
-  "engines": {
-    "yarn": ">= 1.0.0"
-  },
   "scripts": {
     "serve": "NODE_ENV=development ./node_modules/.bin/gulp serve",
-    "build": "NODE_ENV=production ./node_modules/.bin/gulp build",
-    "deploy": "remote/deploy.sh",
-    "bump-patch": "npm version patch; git push origin --tags; git push",
-    "bump-minor": "npm version minor; git push origin --tags; git push",
-    "bump-major": "npm version major; git push origin --tags; git push",
-    "prettier-all": "prettier --write \"**/*.{css,scss,js,json,md}\""
+    "build": "NODE_ENV=production ./node_modules/.bin/gulp build"
   }
 }
