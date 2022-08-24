@@ -6,7 +6,8 @@
   "repository": "git@github.com:floatplane-dev/huisartspoelstra.nl.git",
   "bugs": "https://github.com/floatplane-dev/huisartspoelstra.nl/issues",
   "contributors": [
-    "Jan Werkhoven <jw@floatplane.dev> (https://github.com/janwerkhoven)"
+    "Jan Werkhoven <jw@floatplane.dev> (https://github.com/janwerkhoven)",
+    "Shuwen Wang <sw@floatplane.dev> (https://github.com/codelikeshuwen)"
   ],
   "license": "UNLICENSED",
   "private": true,
