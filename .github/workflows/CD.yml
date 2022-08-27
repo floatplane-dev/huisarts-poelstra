@@ -9,7 +9,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     env:
-      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+      PRIVATE_KEY: ${{secrets.SSH_FRANKFURT}}
       URL: bot@frankfurt.floatplane.dev
       ROOT: /var/www/huisartspoelstra.nl
     steps:
