@@ -116,6 +116,35 @@ body.show-mobile-nav {
     }
   }
 }
+header {
+  a.patientenomgeving {
+    position: absolute;
+    right: 20px;
+    top: 26px;
+    display: flex;
+    font-family: $ubuntu;
+    color: white;
+    text-shadow: 0 1px 5px rgba(black, 0.3);
+    text-decoration: none;
+    border-radius: 3px;
+    line-height: 42px;
+    padding: 0 17px;
+    width: min-content;
+    background: linear-gradient($paragraph-grey, lighten($paragraph-grey, 10%));
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 2px 0 0 darken($paragraph-grey, 2%);
+    &:hover {
+      opacity: 0.9;
+    }
+    img {
+      width: 20px;
+      height: auto;
+      margin-right: 8px;
+    }
+  }
+}
 main {
   position: relative;
   min-height: 650px;
@@ -263,27 +292,6 @@ main {
               }
             }
           }
-        }
-      }
-      a.patientenomgeving {
-        margin-top: 30px;
-        display: flex;
-        font-family: "Lusitana-Bold", serif;
-        color: white;
-        text-shadow: 0 1px 5px rgba(black, 0.3);
-        text-decoration: none;
-        border-radius: 3px;
-        line-height: 38px;
-        padding: 0 16px 0 12px;
-        width: min-content;
-        background: url("/assets/images/bg-title.jpg");
-        &:hover {
-          background: $paragraph-grey;
-        }
-        img {
-          width: 20px;
-          height: auto;
-          margin-right: 8px;
         }
       }
       a.language {
