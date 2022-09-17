@@ -133,10 +133,11 @@ header {
     background: linear-gradient($paragraph-grey, lighten($paragraph-grey, 10%));
     font-size: 17px;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 300ms $easeOutExpo;
     box-shadow: 0 2px 0 0 darken($paragraph-grey, 2%);
     &:hover {
-      opacity: 0.9;
+      padding: 0 21px;
+      box-shadow: 0 3px 0 0 darken($paragraph-grey, 2%);
     }
     img {
       width: 20px;
@@ -410,4 +411,9 @@ a.p-button {
     color: darken($link-green, 10%);
     padding: 8px 34px;
   }
+}
+
+.buttons.horizontal {
+  display: flex;
+  margin-top: 33px;
 }
