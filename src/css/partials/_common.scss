@@ -398,7 +398,8 @@ main {
   }
 }
 
-a.p-button {
+a.p-button,
+.green-button {
   border: 2px solid lighten($link-green, 10%);
   padding: 8px 30px;
   text-decoration: none;

@@ -10,7 +10,7 @@ import {
   format,
   isAfter,
   isBefore,
-  startOfDay
+  startOfDay,
 } from "date-fns";
 
 const language = location.pathname.indexOf("/nl") > -1 ? "nl" : "en";
@@ -30,6 +30,7 @@ function init() {
   checkForCalendarEvents();
   bindMobileNavEvents();
   bindCarouselEvents();
+  setupContactForm();
 }
 
 // Fire page view to Google Analytics
@@ -54,7 +55,7 @@ function checkForCalendarEvents() {
     "GET",
     "https://www.googleapis.com/calendar/v3/calendars/vnsb3jtqormqe6b7ri8hf0k4nc@group.calendar.google.com/events?key=AIzaSyDQIL_K-T2_LkG3HekTMjaabuV90sN51P8"
   );
-  request.onload = function() {
+  request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
       const response = JSON.parse(request.response);
       evaluateEvents(response);
@@ -65,7 +66,7 @@ function checkForCalendarEvents() {
 
 function evaluateEvents(response) {
   // Filter calendar events to those events that are occuring now
-  const eventsRightNow = response.items.filter(item => {
+  const eventsRightNow = response.items.filter((item) => {
     const startTime = item.start.date
       ? startOfDay(item.start.date)
       : item.start.dateTime;
@@ -78,7 +79,7 @@ function evaluateEvents(response) {
   if (eventsRightNow.length) {
     const firstEvent = eventsRightNow[0];
     const dismissed = JSON.parse(sessionStorage.getItem("dismissed")) || [];
-    const wasDismissed = dismissed.some(event => event === firstEvent.id);
+    const wasDismissed = dismissed.some((event) => event === firstEvent.id);
     if (wasDismissed) {
       return;
     }
@@ -132,7 +133,7 @@ function bindMobileNavEvents() {
   const btn = document.querySelector(`header button`);
   btn.addEventListener(
     "click",
-    event => {
+    (event) => {
       event.stopPropagation();
       toggleMobileNav();
     },
@@ -140,7 +141,7 @@ function bindMobileNavEvents() {
   );
   document.querySelector("nav").addEventListener(
     "click",
-    event => {
+    (event) => {
       event.stopPropagation();
       openMobileNav();
     },
@@ -177,12 +178,12 @@ function bindCarouselEvents() {
   const btnNext = document.querySelector(`.carousel button.next`);
   const btnPrev = document.querySelector(`.carousel button.prev`);
   btnPrev.addEventListener("click", prevPhoto);
-  btnPrev.addEventListener("mouseover", function() {
+  btnPrev.addEventListener("mouseover", function () {
     carousel.classList.add("prev");
     carousel.classList.remove("next");
   });
   btnNext.addEventListener("click", nextPhoto);
-  btnNext.addEventListener("mouseover", function() {
+  btnNext.addEventListener("mouseover", function () {
     carousel.classList.add("next");
     carousel.classList.remove("prev");
   });
@@ -226,6 +227,21 @@ function outroPhoto(i) {
   setTimeout(() => {
     photos[i].classList.remove("outro");
   }, 900);
+}
+
+function setupContactForm() {
+  console.log("Contact form ready");
+  document.querySelector("#contact-form .green-button").onclick = getInputValue;
+}
+
+function getInputValue() {
+  console.log("getValue");
+  const name = document.querySelector("#contact-form input#name").value;
+  const email = document.querySelector("#contact-form input#email").value;
+  const comment = document.querySelector("#contact-form textarea").value;
+  console.log(name);
+  console.log(email);
+  console.log(comment);
 }
 
 // Only init() once the DOM is ready for interaction.
