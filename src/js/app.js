@@ -25,12 +25,13 @@ let photos;
 let currentPhoto = 0;
 let showingNav = false;
 
-function init() {
+function onPageLoad() {
   sendPageViewToGA();
   checkForCalendarEvents();
   bindMobileNavEvents();
   bindCarouselEvents();
-  setupContactForm();
+  // setupContactForm();
+  setupCheckBox();
 }
 
 // Fire page view to Google Analytics
@@ -244,13 +245,32 @@ function getInputValue() {
   console.log(comment);
 }
 
+function setupCheckBox() {
+  document.querySelectorAll("button.checkbox").forEach((button) => {
+    button.onclick = toggleCheckedIcon;
+  });
+}
+
+function toggleCheckedIcon(event) {
+  const button = event.currentTarget;
+  const boxIsChecked = button.classList.contains("checked");
+
+  if (boxIsChecked) {
+    button.classList.add("unchecked");
+    button.classList.remove("checked");
+  } else {
+    button.classList.remove("unchecked");
+    button.classList.add("checked");
+  }
+}
+
 // Only init() once the DOM is ready for interaction.
 // A common mistake is to wait for "complete", but we don't need images and styles to be complete.
 const domIsInteractive = ["interactive", "complete"].includes(
   document.readyState
 );
 if (domIsInteractive) {
-  init();
+  onPageLoad();
 } else {
-  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("DOMContentLoaded", onPageLoad);
 }
