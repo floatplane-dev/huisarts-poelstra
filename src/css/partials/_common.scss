@@ -116,36 +116,57 @@ body.show-mobile-nav {
     }
   }
 }
+
 header {
   a.patientenomgeving {
     position: absolute;
     right: 20px;
     top: 26px;
-    display: flex;
-    font-family: $ubuntu;
-    color: white;
-    text-shadow: 0 1px 5px rgba(black, 0.3);
-    text-decoration: none;
-    border-radius: 3px;
-    line-height: 42px;
-    padding: 0 17px;
-    width: min-content;
-    background: linear-gradient($paragraph-grey, lighten($paragraph-grey, 10%));
-    font-size: 17px;
-    font-weight: 600;
-    transition: all 300ms $easeOutExpo;
-    box-shadow: 0 2px 0 0 darken($paragraph-grey, 2%);
-    &:hover {
-      padding: 0 21px;
-      box-shadow: 0 3px 0 0 darken($paragraph-grey, 2%);
-    }
-    img {
-      width: 20px;
-      height: auto;
-      margin-right: 8px;
+    @media (max-width: 850px) {
+      display: none;
     }
   }
 }
+
+nav {
+  a.patientenomgeving {
+    margin-top: 20px;
+    padding: 0px 9px;
+    font-size: 15px;
+    width: 100%;
+    line-height: 35%;
+    @media (min-width: 851px) {
+      display: none;
+    }
+  }
+}
+
+a.patientenomgeving {
+  display: flex;
+  font-family: $ubuntu;
+  color: white;
+  text-shadow: 0 1px 5px rgba(black, 0.3);
+  text-decoration: none;
+  border-radius: 3px;
+  line-height: 42px;
+  padding: 0 17px;
+  width: min-content;
+  background: linear-gradient($paragraph-grey, lighten($paragraph-grey, 10%));
+  font-size: 17px;
+  font-weight: 600;
+  transition: all 300ms $easeOutExpo;
+  box-shadow: 0 2px 0 0 darken($paragraph-grey, 2%);
+  &:hover {
+    padding: 0 21px;
+    box-shadow: 0 3px 0 0 darken($paragraph-grey, 2%);
+  }
+  img {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+  }
+}
+
 main {
   position: relative;
   min-height: 650px;
@@ -230,7 +251,6 @@ main {
       box-sizing: border-box;
       @media (max-width: 1080px) {
         width: 28vw;
-        // padding: 0 2vw;
       }
       @media (max-width: 850px) {
         position: absolute;
@@ -242,9 +262,6 @@ main {
       &:after,
       &:before {
         height: 380px;
-        // @media (max-width: 850px) {
-        //   left: 20px;
-        // }
       }
       .inner {
         @media (max-width: 850px) {
@@ -253,7 +270,7 @@ main {
       }
       ul {
         li {
-          a {
+          a:not(.patientenomgeving) {
             display: block;
             width: 190px;
             height: 36px;
@@ -268,7 +285,6 @@ main {
             align-items: center;
             @media (max-width: 1080px) {
               width: 17.59259vw;
-              // padding: 0 0.9259259vw;
             }
             @media (max-width: 850px) {
               width: 100%;
