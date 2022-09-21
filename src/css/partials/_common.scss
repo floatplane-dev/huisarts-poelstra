@@ -462,6 +462,11 @@ a.p-button,
       outline: 1px solid #a4d445;
       outline-offset: -2px;
     }
+    &:disabled {
+      background-color: #f3f3f3;
+      border-color: #ccc !important;
+      cursor: not-allowed;
+    }
     textarea {
       line-height: 150%;
       padding: 14px 16px 40px;

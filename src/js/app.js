@@ -30,7 +30,7 @@ function onPageLoad() {
   checkForCalendarEvents();
   bindMobileNavEvents();
   bindCarouselEvents();
-  // setupContactForm();
+  setupContactForm();
   setupCheckBox();
 }
 
@@ -231,18 +231,48 @@ function outroPhoto(i) {
 }
 
 function setupContactForm() {
-  console.log("Contact form ready");
-  document.querySelector("#contact-form .green-button").onclick = getInputValue;
+  const button = document.querySelector("#contact #form button");
+  if (button) {
+    button.addEventListener("click", submitContactForm);
+  }
 }
 
-function getInputValue() {
-  console.log("getValue");
-  const name = document.querySelector("#contact-form input#name").value;
-  const email = document.querySelector("#contact-form input#email").value;
-  const comment = document.querySelector("#contact-form textarea").value;
+let submitting = false;
+
+async function submitContactForm() {
+  if (submitting) {
+    return;
+  }
+  const form = document.querySelector("#contact #form");
+  const nameInput = document.querySelector("#contact #form input#name");
+  const emailInput = document.querySelector("#contact #form input#email");
+  const messageInput = document.querySelector("#contact #form textarea");
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const message = messageInput.value;
+  console.log("sending...");
   console.log(name);
   console.log(email);
-  console.log(comment);
+  console.log(message);
+  nameInput.disabled = true;
+  emailInput.disabled = true;
+  messageInput.disabled = true;
+  submitting = true;
+  form.classList.replace("idle", "sending");
+  try {
+    const response = await fetch("http://localhost:4242/submit-contact-form", {
+      method: "POST",
+      body: JSON.stringify({ name, email, message }),
+    });
+    const content = await response.json();
+    if (content.success) {
+      form.classList.replace("sending", "success");
+    } else {
+      form.classList.replace("sending", "fail");
+    }
+  } catch (e) {
+    form.classList.replace("sending", "fail");
+  }
 }
 
 function setupCheckBox() {
