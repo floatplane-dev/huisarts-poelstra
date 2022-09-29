@@ -260,10 +260,13 @@ async function submitContactForm() {
   submitting = true;
   form.classList.replace("idle", "sending");
   try {
-    const response = await fetch("http://localhost:4242/submit-contact-form", {
-      method: "POST",
-      body: JSON.stringify({ name, email, message }),
-    });
+    const response = await fetch(
+      "https://api.huisartspoelstra.nl/submit-contact-form",
+      {
+        method: "POST",
+        body: JSON.stringify({ name, email, message }),
+      }
+    );
     const content = await response.json();
     if (content.success) {
       form.classList.replace("sending", "success");
