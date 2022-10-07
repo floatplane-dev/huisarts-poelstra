@@ -31,6 +31,7 @@ function onPageLoad() {
   bindMobileNavEvents();
   bindCarouselEvents();
   setupContactForm();
+  setupRegistrationForm();
   setupCheckBox();
 }
 
@@ -237,6 +238,15 @@ function setupContactForm() {
   }
 }
 
+function setupRegistrationForm() {
+  const button = document.querySelector(
+    "#registration-form button.green-button"
+  );
+  if (button) {
+    button.addEventListener("click", submitRegistrationForm);
+  }
+}
+
 let submitting = false;
 
 async function submitContactForm() {
@@ -265,6 +275,79 @@ async function submitContactForm() {
       {
         method: "POST",
         body: JSON.stringify({ name, email, message }),
+      }
+    );
+    const content = await response.json();
+    if (content.success) {
+      form.classList.replace("sending", "success");
+    } else {
+      form.classList.replace("sending", "fail");
+    }
+  } catch (e) {
+    form.classList.replace("sending", "fail");
+  }
+}
+
+async function submitRegistrationForm() {
+  if (submitting) {
+    return;
+  }
+
+  const form = document.querySelector("#registration-form");
+
+  const firstNameInput = form.querySelector("input#first-name");
+  const lastNameInput = form.querySelector("input#last-name");
+  const genderInput = form.querySelector("input#gender");
+  const dobInput = form.querySelector("input#dob");
+  const addressInput = form.querySelector("textarea#address");
+  const emailInput = form.querySelector("input#email");
+  const phoneInput = form.querySelector("input#phone");
+  const agreement1 = form.querySelector("#agreement-1");
+  const agreement2 = form.querySelector("#agreement-2");
+
+  const firstName = firstNameInput.value;
+  const lastName = lastNameInput.value;
+  const gender = genderInput.value;
+  const dob = dobInput.value;
+  const address = addressInput.value;
+  const email = emailInput.value;
+  const phone = phoneInput.value;
+  const agreed1 = agreement1.classList.contains("checked");
+  const agreed2 = agreement2.classList.contains("checked");
+
+  const payload = {
+    firstName,
+    lastName,
+    gender,
+    dob,
+    address,
+    email,
+    phone,
+    agreed1,
+    agreed2,
+  };
+
+  console.log("sending...");
+  console.log(payload);
+
+  firstNameInput.disabled = true;
+  lastNameInput.disabled = true;
+  genderInput.disabled = true;
+  dobInput.disabled = true;
+  addressInput.disabled = true;
+  emailInput.disabled = true;
+  phoneInput.disabled = true;
+  agreement1.disabled = true;
+  agreement2.disabled = true;
+
+  submitting = true;
+  form.classList.replace("idle", "sending");
+  try {
+    const response = await fetch(
+      "https://api.huisartspoelstra.nl/submit-registration-form",
+      {
+        method: "POST",
+        body: JSON.stringify(payload),
       }
     );
     const content = await response.json();
