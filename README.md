@@ -44,6 +44,4 @@ For deployment to production:
 Ask team Floatplane!
 
 [hello@floatplane.dev](mailto:hello@floatplane.dev)  
-[www.floatplane.dev](floatplane.dev)  
-[GitHub](https://github.com/janwerkhoven)  
-[LinkedIn](https://au.linkedin.com/pub/jan-werkhoven/10/64/b30)
+[www.floatplane.dev](floatplane.dev)
