@@ -302,9 +302,9 @@ async function submitRegistrationForm() {
   const addressInput = form.querySelector("textarea#address");
   const emailInput = form.querySelector("input#email");
   const phoneInput = form.querySelector("input#phone");
+  const bsnInput = form.querySelector("input#bsn");
   const agreement1 = form.querySelector("#agreement-1");
   const agreement2 = form.querySelector("#agreement-2");
-
   const firstName = firstNameInput.value;
   const lastName = lastNameInput.value;
   const gender = genderInput.value;
@@ -312,6 +312,7 @@ async function submitRegistrationForm() {
   const address = addressInput.value;
   const email = emailInput.value;
   const phone = phoneInput.value;
+  const bsn = bsnInput.value;
   const agreed1 = agreement1.classList.contains("checked");
   const agreed2 = agreement2.classList.contains("checked");
 
@@ -323,6 +324,7 @@ async function submitRegistrationForm() {
     address,
     email,
     phone,
+    bsn,
     agreed1,
     agreed2,
   };
@@ -337,6 +339,7 @@ async function submitRegistrationForm() {
   addressInput.disabled = true;
   emailInput.disabled = true;
   phoneInput.disabled = true;
+  bsnInput.disabled = true;
   agreement1.disabled = true;
   agreement2.disabled = true;
 
