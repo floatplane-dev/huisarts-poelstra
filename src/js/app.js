@@ -27,7 +27,6 @@ let showingNav = false;
 
 function onPageLoad() {
   sendPageViewToGA();
-  checkForCalendarEvents();
   bindMobileNavEvents();
   bindCarouselEvents();
   setupContactForm();
@@ -45,90 +44,6 @@ function sendPageViewToGA() {
     ga("set", { dimension1: NODE_ENV });
     ga("send", "pageview");
   }
-}
-
-// https://date-fns.org/
-// https://github.com/date-fns/date-fns/issues/556
-// https://www.techrepublic.com/article/convert-the-local-time-to-another-time-zone-with-this-javascript/
-// https://www.npmjs.com/package/time
-function checkForCalendarEvents() {
-  var request = new XMLHttpRequest();
-  request.open(
-    "GET",
-    "https://www.googleapis.com/calendar/v3/calendars/vnsb3jtqormqe6b7ri8hf0k4nc@group.calendar.google.com/events?key=AIzaSyDQIL_K-T2_LkG3HekTMjaabuV90sN51P8"
-  );
-  request.onload = function () {
-    if (request.status >= 200 && request.status < 400) {
-      const response = JSON.parse(request.response);
-      evaluateEvents(response);
-    }
-  };
-  request.send();
-}
-
-function evaluateEvents(response) {
-  // Filter calendar events to those events that are occuring now
-  const eventsRightNow = response.items.filter((item) => {
-    const startTime = item.start.date
-      ? startOfDay(item.start.date)
-      : item.start.dateTime;
-    const endTime = item.end.date ? endOfDay(item.end.date) : item.end.dateTime;
-    const isToday = !isBefore(now, startTime) && !isAfter(now, endTime);
-    return isToday;
-  });
-
-  // Continue only if there is an event occuring right now (in the Netherlands)
-  if (eventsRightNow.length) {
-    const firstEvent = eventsRightNow[0];
-    const dismissed = JSON.parse(sessionStorage.getItem("dismissed")) || [];
-    const wasDismissed = dismissed.some((event) => event === firstEvent.id);
-    if (wasDismissed) {
-      return;
-    }
-    showCalendarMessage(firstEvent);
-  }
-}
-
-function showCalendarMessage(event) {
-  const element = document.createElement("div");
-  element.setAttribute("id", "calendar-event");
-  const startDate = event.start.date
-    ? format(event.start.date, "DD/MM/YYYY")
-    : format(addHours(event.start.dateTime, 1), "DD/MM/YYYY, HH:mm");
-  const endDate = event.end.date
-    ? format(addDays(event.end.date, -1), "DD/MM/YYYY")
-    : format(addHours(event.end.dateTime, 1), "DD/MM/YYYY, HH:mm");
-  const dates =
-    startDate === endDate
-      ? `Gedurende ${startDate}`
-      : `Van: ${startDate}</br>Tot: ${endDate}`;
-  const description = event.description
-    ? event.description.replace(/\n\n/g, "<p/><p>").replace(/\n/g, "<br/>")
-    : "";
-  const buttonLabel =
-    language === "nl" ? "Begrepen, sluit venster" : "Understood, close message";
-  element.innerHTML = `
-    <div>
-      <div>
-        <h1>${event.summary}</h1>
-        <p>${dates}</p>
-        <p>${description}</p>
-        <button>${buttonLabel}</button>
-      </div>
-    </div>
-  `;
-  const closeButton = element.querySelector("button");
-  const close = () => {
-    element.classList.add("outro");
-    let dismissed = JSON.parse(sessionStorage.getItem("dismissed")) || [];
-    dismissed.push(event.id);
-    sessionStorage.setItem("dismissed", JSON.stringify(dismissed));
-    setTimeout(() => {
-      element.remove();
-    }, 500);
-  };
-  closeButton.addEventListener("click", close, false);
-  document.body.appendChild(element);
 }
 
 function bindMobileNavEvents() {
