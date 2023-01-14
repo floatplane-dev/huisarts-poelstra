@@ -2,7 +2,7 @@
 
 #### What
 
-This is the website of a GP in Rotterdam, Netherlands.
+This is the website of a GP in Rotterdam, Netherlands 🇳🇱.
 
 [www.huisartspoelstra.nl](https://huisartspoelstra.nl)
 
@@ -14,7 +14,6 @@ This is the website of a GP in Rotterdam, Netherlands.
 * Originally built in 2011 in PHP CMS Joomla. 🙄
 * Revamped with Gulp May 2017. 🍹
 * Maintained by [team Floatplane](https://floatplane.dev). 🚤
-* Code & design by [Jan Werkhoven](https://github.com/janwerkhoven). 🤸🏻‍♂️
 
 ---
 
