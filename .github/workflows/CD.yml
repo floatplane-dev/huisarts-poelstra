@@ -11,7 +11,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     env:
-      PRIVATE_KEY: ${{secrets.SSH_AMSTERDAM}}
+      SSH: ${{secrets.SSH_AMSTERDAM}}
       URL: admin@amsterdam.server.floatplane.dev
       ROOT: /var/www/huisartspoelstra.nl
     steps:
@@ -21,7 +21,7 @@ jobs:
       - run: mkdir ~/.ssh
 
       # Add the private key of the restricted bot user on the remote server
-      - run: 'echo "$PRIVATE_KEY" > ~/.ssh/$URL'
+      - run: 'echo "$SSH" > ~/.ssh/$URL'
 
       # Configure SSH to always use the custom key, so we don't have to do ssh -i
       - run: 'echo "IdentityFile ~/.ssh/$URL" > ~/.ssh/config'
