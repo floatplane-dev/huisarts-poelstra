@@ -11,6 +11,7 @@
     {% block meta %}{% endblock %}
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css">
     <script src="/assets/js/app.min.js" type="text/javascript"></script>
+    {% include "partials/google-analytics.html" %}
     {% include "partials/favicons.html" %}
   </head>
   <body id="{% block id %}{% endblock %}">
@@ -75,6 +76,5 @@
         </article>
       </div>
     </main>
-    {% include "partials/outdated-browsers.html" %}
   </body>
 </html>

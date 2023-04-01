@@ -1,8 +1,6 @@
 // Environment variables
 const NODE_ENV = process.env.NODE_ENV;
-const GA = process.env.GA;
 
-import googleAnalytics from "./vendor/google-analytics";
 import {
   addDays,
   addHours,
@@ -26,24 +24,11 @@ let currentPhoto = 0;
 let showingNav = false;
 
 function onPageLoad() {
-  sendPageViewToGA();
   bindMobileNavEvents();
   bindCarouselEvents();
   setupContactForm();
   setupRegistrationForm();
   setupCheckBox();
-}
-
-// Fire page view to Google Analytics
-// Only fire if ga is present and not removed by privacy guarding browser plugins
-// Only continue if a the UA-ID was correctly embedded in this file (sometime fails)
-function sendPageViewToGA() {
-  googleAnalytics;
-  if (ga && GA) {
-    ga("create", GA, "auto");
-    ga("set", { dimension1: NODE_ENV });
-    ga("send", "pageview");
-  }
 }
 
 function bindMobileNavEvents() {
